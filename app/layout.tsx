@@ -89,7 +89,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#0B0B10] text-[#F6F6F8] selection:bg-[#18CB96] selection:text-[#0B0B10] antialiased">
+      <body className="min-h-screen flex flex-col bg-[#0b091d] text-[#F6F6F8] selection:bg-[#14af81] selection:text-[#0b091d] antialiased">
         <ScrollProgressBar />
         <LenisProvider>
           <Megamenu />

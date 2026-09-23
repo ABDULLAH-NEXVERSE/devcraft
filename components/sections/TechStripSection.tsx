@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Cpu, Layers } from "lucide-react";
+import { Cpu } from "lucide-react";
 import { TechLogo } from "@/components/icons/TechLogos";
 
 interface TechPill {
@@ -22,42 +22,47 @@ const coreTech: TechPill[] = [
 
 export const TechStripSection: React.FC = () => {
   return (
-    <section className="py-16 px-4 sm:px-6 max-w-7xl mx-auto relative">
-      <div className="p-8 sm:p-10 rounded-3xl glass-panel border border-white/10 relative overflow-hidden bg-[#0B0B10]/90">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 pb-6 border-b border-white/5">
+    <section className="w-full bg-[#14af81] text-[#0B091D] py-16 sm:py-20 relative overflow-hidden shadow-inner">
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#0B091D]/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10 pb-6 border-b border-white/20">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase text-[#18CB96] tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase text-[#0B091D] bg-white/25 px-3 py-1 rounded-full tracking-wider mb-3 font-bold border border-white/30">
               <Cpu className="w-4 h-4" />
               <span>Modern Technology Stack</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">
               Engineered with the Right Tools for Every Layer
             </h3>
           </div>
 
           <Link
             href="/technologies"
-            className="inline-flex items-center gap-2 text-xs font-mono text-[#18CB96] hover:text-[#4ED7AE] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#0B091D] bg-white hover:bg-[#e4f9f3] px-5 py-2.5 rounded-full transition-all shadow-sm self-start lg:self-auto group"
           >
-            <span>View Full Technology Architecture &rarr;</span>
+            <span>Full Technology Architecture</span>
+            <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
           </Link>
         </div>
 
         {/* Core Stack Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3.5">
           {coreTech.map((tech) => (
             <div
               key={tech.name}
-              className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-[#18CB96]/40 hover:bg-white/10 transition-all text-center group cursor-default flex flex-col items-center justify-between min-h-[110px]"
+              className="p-4 rounded-2xl bg-white/95 border border-white/50 hover:bg-white hover:-translate-y-1 transition-all duration-300 text-center group cursor-default flex flex-col items-center justify-between min-h-[120px] shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_24px_rgba(11,9,29,0.15)]"
             >
-              <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 p-1.5 flex items-center justify-center mb-2 group-hover:border-[#18CB96]/30 group-hover:bg-[#18CB96]/10 transition-all">
-                <TechLogo name={tech.name} className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-[#e4f9f3] border border-[#14af81]/25 p-2 flex items-center justify-center mb-2 group-hover:scale-110 group-hover:bg-[#14af81]/15 transition-all duration-300">
+                <TechLogo name={tech.name} className="w-5 h-5 text-[#0B091D]" />
               </div>
               <div>
-                <div className="text-xs font-bold text-white group-hover:text-[#18CB96] transition-colors font-mono">
+                <div className="text-xs font-bold text-[#0B091D] font-mono">
                   {tech.name}
                 </div>
-                <div className="text-[10px] text-[#A4A2B2] mt-0.5">
+                <div className="text-[10px] text-[#4B5563] mt-0.5 font-medium">
                   {tech.category}
                 </div>
               </div>

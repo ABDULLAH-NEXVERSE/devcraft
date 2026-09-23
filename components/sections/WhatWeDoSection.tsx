@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe,
   Smartphone,
@@ -11,111 +11,177 @@ import {
   Layout,
   Sparkles,
   ShieldCheck,
-  ArrowRight,
+  ArrowUpRight,
   Code2,
+  ChevronDown,
 } from "lucide-react";
 import { servicesData } from "@/data/servicesData";
 
-const iconMap: Record<string, React.ReactNode> = {
-  "web-development": <Globe className="w-6 h-6 text-[#18CB96]" />,
-  "mobile-app-development": <Smartphone className="w-6 h-6 text-[#4ED7AE]" />,
-  "custom-software-development": <Cpu className="w-6 h-6 text-[#18CB96]" />,
-  "ecommerce-development": <ShoppingBag className="w-6 h-6 text-[#80E2C5]" />,
-  "ui-ux-design": <Layout className="w-6 h-6 text-[#18CB96]" />,
-  "ai-ml-solutions": <Sparkles className="w-6 h-6 text-[#4ED7AE]" />,
-  "maintenance-support": <ShieldCheck className="w-6 h-6 text-[#18CB96]" />,
+const iconMap: Record<string, React.ElementType> = {
+  "web-development": Globe,
+  "mobile-app-development": Smartphone,
+  "custom-software-development": Cpu,
+  "ecommerce-development": ShoppingBag,
+  "ui-ux-design": Layout,
+  "ai-ml-solutions": Sparkles,
+  "maintenance-support": ShieldCheck,
 };
 
 export const WhatWeDoSection: React.FC = () => {
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
+
   return (
-    <section className="py-24 px-4 sm:px-6 max-w-7xl mx-auto relative">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#18CB96]/10 border border-[#18CB96]/25 text-[#18CB96] text-xs font-mono uppercase tracking-wider mb-4">
-          <Code2 className="w-3.5 h-3.5" />
-          <span>Capability Matrix</span>
-        </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
-          What We Do
-        </h2>
-        <p className="text-sm sm:text-base text-[#A4A2B2] leading-relaxed">
-          We design, build and support software end to end — websites and web apps, native and cross-platform mobile apps, custom backend systems, e-commerce platforms, and AI/ML features that make products smarter. Every engagement includes ongoing maintenance, not just a handover.
-        </p>
-      </div>
+    <section className="w-full bg-[#e4f9f3] text-[#0B091D] py-24 sm:py-32 relative overflow-hidden border-y border-[#14af81]/20">
+      {/* Subtle ambient light gradient */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#14af81]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/60 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {servicesData.map((service, idx) => (
-          <motion.div
-            key={service.slug}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: idx * 0.06 }}
-            whileHover={{ y: -4 }}
-            className={`p-6 sm:p-7 rounded-3xl glass-panel brand-card-border relative overflow-hidden group flex flex-col justify-between bg-[#0B0B10]/90 ${
-              idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
-            }`}
-          >
-            <div className="absolute -right-8 -top-8 w-32 h-32 bg-[#18CB96]/5 rounded-full blur-2xl group-hover:bg-[#18CB96]/15 transition-all duration-300 pointer-events-none" />
-
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-2xl bg-[#18CB96]/10 text-[#18CB96] group-hover:bg-[#18CB96]/20 transition-colors">
-                  {iconMap[service.slug] || <Code2 className="w-6 h-6 text-[#18CB96]" />}
-                </div>
-                {service.badge && (
-                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#18CB96]/15 text-[#18CB96] border border-[#18CB96]/25 font-semibold">
-                    {service.badge}
-                  </span>
-                )}
-              </div>
-
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#18CB96] transition-colors font-display">
-                {service.title}
-              </h3>
-
-              {/* Strict 2-Line Truncated Description */}
-              <p
-                className="text-xs sm:text-sm text-[#A4A2B2] leading-relaxed mb-4 line-clamp-2 min-h-[2.5rem]"
-                title={service.shortDesc}
-              >
-                {service.shortDesc}
-              </p>
-
-              {/* Tag Strip: Top 2 tags + Pill badge */}
-              <div className="tag-strip-nowrap mb-6">
-                {service.techStack.slice(0, 2).map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-white/5 text-[#80E2C5] border border-white/5 shrink-0"
-                  >
-                    {tech}
-                  </span>
-                ))}
-                {service.techStack.length > 2 && (
-                  <span
-                    className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#18CB96]/10 text-[#18CB96] border border-[#18CB96]/25 shrink-0"
-                    title={service.techStack.slice(2).join(", ")}
-                  >
-                    +{service.techStack.length - 2} more
-                  </span>
-                )}
-              </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        {/* Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-16">
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#14af81]/15 border border-[#14af81]/30 text-[#14af81] text-xs font-mono uppercase tracking-wider mb-5 font-bold shadow-sm">
+              <Code2 className="w-3.5 h-3.5" />
+              <span>Full-Lifecycle Capabilities</span>
             </div>
-
-            <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-              <span className="text-[11px] font-mono text-[#6B697D]">
-                {service.metrics[0]?.label}: <span className="text-white font-semibold">{service.metrics[0]?.value}</span>
-              </span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0B091D] mb-5 font-display leading-[1.08]">
+              What We <br />
+              <span className="text-[#14af81]">Build &amp; Operate.</span>
+            </h2>
+            <p className="text-sm sm:text-base text-[#374151] leading-relaxed max-w-md font-medium">
+              We architect, engineer, and support digital products end-to-end.
+              From intuitive user interfaces and resilient backend systems to
+              applied machine learning and continuous production operations.
+            </p>
+            <div className="mt-8">
               <Link
-                href={`/services/${service.slug}`}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#18CB96] hover:text-[#4ED7AE] group-hover:translate-x-1 transition-all"
+                href="/services"
+                className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#14af81] hover:text-[#0B091D] transition-colors py-1 group"
               >
-                <span>Explore</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Explore all 7 service lines</span>
+                <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
               </Link>
             </div>
-          </motion.div>
-        ))}
+          </div>
+
+          {/* Accordion list */}
+          <div className="lg:col-span-7">
+            <div className="divide-y divide-[#14af81]/25">
+              {servicesData.map((service, idx) => {
+                const Icon = iconMap[service.slug] || Code2;
+                const isOpen = openIdx === idx;
+
+                return (
+                  <motion.div
+                    key={service.slug}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  >
+                    <button
+                      onClick={() => setOpenIdx(isOpen ? null : idx)}
+                      className="group w-full text-left flex items-center gap-5 py-6 sm:py-7 transition-all duration-200 cursor-pointer outline-none"
+                    >
+                      {/* Step number */}
+                      <span className="font-mono text-xs font-bold text-[#14af81] w-6 shrink-0">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+
+                      {/* Icon */}
+                      <div
+                        className={`p-2.5 rounded-xl transition-all duration-300 shrink-0 ${
+                          isOpen
+                            ? "bg-[#14af81] text-white shadow-md shadow-[#14af81]/30"
+                            : "bg-white text-[#14af81] shadow-sm border border-[#14af81]/20 group-hover:bg-[#14af81] group-hover:text-white"
+                        }`}
+                      >
+                        <Icon className="w-5 h-5" />
+                      </div>
+
+                      {/* Title + badge */}
+                      <div className="flex-1 min-w-0 flex items-center gap-3">
+                        <h3
+                          className={`text-base sm:text-lg font-bold transition-colors ${
+                            isOpen
+                              ? "text-[#14af81]"
+                              : "text-[#0B091D] group-hover:text-[#14af81]"
+                          }`}
+                        >
+                          {service.title}
+                        </h3>
+                        {service.badge && (
+                          <span className="text-[9px] font-mono px-2.5 py-0.5 rounded-full bg-[#14af81]/15 text-[#14af81] border border-[#14af81]/30 font-bold uppercase hidden sm:block">
+                            {service.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Chevron */}
+                      <ChevronDown
+                        className={`w-4 h-4 shrink-0 transition-all duration-300 ${
+                          isOpen
+                            ? "rotate-180 text-[#14af81]"
+                            : "text-[#6B7280] group-hover:text-[#14af81]"
+                        }`}
+                      />
+                    </button>
+
+                    {/* Expandable detail */}
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pl-[4.25rem] pb-6 space-y-4">
+                            <p className="text-sm text-[#374151] leading-relaxed max-w-xl font-medium">
+                              {service.shortDesc}
+                            </p>
+
+                            {/* Tech tags */}
+                            <div className="flex flex-wrap gap-2">
+                              {service.techStack.slice(0, 5).map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="text-[10px] font-mono font-semibold px-2.5 py-1 rounded-md bg-white text-[#0B091D] border border-[#14af81]/30 shadow-xs"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+
+                            {/* Metric + CTA */}
+                            <div className="flex items-center justify-between pt-1">
+                              {service.metrics[0] && (
+                                <span className="text-xs font-mono text-[#4B5563]">
+                                  {service.metrics[0].label}:{" "}
+                                  <span className="text-[#0B091D] font-bold">
+                                    {service.metrics[0].value}
+                                  </span>
+                                </span>
+                              )}
+                              <Link
+                                href={`/services/${service.slug}`}
+                                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#14af81] hover:text-[#0B091D] transition-all group/link"
+                              >
+                                <span>Full service brief</span>
+                                <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                              </Link>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

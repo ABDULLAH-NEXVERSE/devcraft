@@ -54,7 +54,11 @@ export const CaseStudiesSection: React.FC = () => {
             <span>Live Result Benchmark</span>
           </div>
 
-          <div className="space-y-2.5 max-h-[640px] overflow-y-auto pr-1 scrollbar-thin">
+          <div
+            data-lenis-prevent
+            className="space-y-2.5 max-h-[580px] overflow-y-auto pr-0.5 no-scrollbar"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             {portfolioData.map((study, idx) => {
               const isActive = idx === activeIdx;
 
@@ -228,10 +232,10 @@ export const CaseStudiesSection: React.FC = () => {
 
               <Link
                 href={`/work/${activeStudy.slug}`}
-                className="px-6 py-2.5 rounded-full text-xs font-semibold bg-[#18CB96] text-[#07070A] hover:bg-[#14AF81] transition-all flex items-center gap-1.5 shadow-[0_0_20px_rgba(24,203,150,0.3)] hover:shadow-[0_0_30px_rgba(24,203,150,0.5)] cursor-pointer"
+                className="btn-primary-halo px-6 py-2.5 rounded-full text-xs font-bold flex items-center gap-1.5 cursor-pointer group"
               >
                 <span>Read Technical Case Study</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </Link>
             </div>
           </SpotlightCard>

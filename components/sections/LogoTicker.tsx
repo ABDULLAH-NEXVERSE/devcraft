@@ -6,7 +6,7 @@ import { homeData } from "@/data/homeData";
 
 export const LogoTicker: React.FC = () => {
   return (
-    <section className="py-12 border-y border-white/5 bg-[#0B0B10]/85 relative overflow-hidden">
+    <section className="py-12 border-y border-white/[0.06] bg-[#0b091da1] backdrop-blur-md relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
         <p className="text-xs font-mono uppercase tracking-widest text-[#A4A2B2]">
           Organisations &amp; Platforms We Have Built For
@@ -15,8 +15,8 @@ export const LogoTicker: React.FC = () => {
 
       <div className="relative w-full overflow-hidden flex">
         {/* Edge fade gradients */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-r from-[#0B0B10] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-l from-[#0B0B10] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-r from-[#0b091d] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-l from-[#0b091d] to-transparent z-10 pointer-events-none" />
 
         <div className="animate-marquee flex items-center gap-14 whitespace-nowrap">
           {homeData.marqueeClients.concat(homeData.marqueeClients).map((partner, idx) => (

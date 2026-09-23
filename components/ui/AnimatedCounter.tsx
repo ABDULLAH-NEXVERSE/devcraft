@@ -23,7 +23,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   useEffect(() => {
     if (!isNumeric) return;
 
-    let start = 0;
+    const start = 0;
     const duration = 750; // ms
     const startTime = performance.now();
 

@@ -21,17 +21,16 @@ export const ContactSection: React.FC<Props> = ({ initialTab = "quote" }) => {
   const [activeTab, setActiveTab] = useState<"quote" | "consultation">(initialTab);
   const [submittedQuote, setSubmittedQuote] = useState(false);
   const [submittedBooking, setSubmittedBooking] = useState(false);
-  const [userTimeZone, setUserTimeZone] = useState("UTC");
-
-  // Auto-detect timezone
-  useEffect(() => {
-    try {
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      if (tz) setUserTimeZone(tz);
-    } catch {
-      setUserTimeZone("Europe/London");
+  const [userTimeZone] = useState(() => {
+    if (typeof window !== "undefined") {
+      try {
+        return Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+      } catch {
+        return "Europe/London";
+      }
     }
-  }, []);
+    return "UTC";
+  });
 
   // Form states for Quote Request
   const [quoteData, setQuoteData] = useState({
@@ -91,8 +90,8 @@ export const ContactSection: React.FC<Props> = ({ initialTab = "quote" }) => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 max-w-5xl mx-auto">
-      <div className="glass-panel p-6 sm:p-12 rounded-3xl border border-white/15 relative overflow-hidden bg-[#0B0B10]/95">
+    <section id="contact" className="py-28 sm:py-32 px-4 sm:px-6 max-w-5xl mx-auto">
+      <div className="glass-panel p-6 sm:p-12 rounded-3xl border border-white/15 relative overflow-hidden bg-[#0B0B10]/95 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.7)]">
         {/* Top emerald atmospheric glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-36 bg-[#18CB96]/20 blur-3xl rounded-full pointer-events-none" />
 
@@ -384,10 +383,10 @@ export const ContactSection: React.FC<Props> = ({ initialTab = "quote" }) => {
 
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-bold bg-[#18CB96] text-[#0B0B10] hover:bg-[#14AF81] transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(24,203,150,0.35)] cursor-pointer"
+                    className="btn-primary-halo w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-bold flex items-center justify-center gap-2 cursor-pointer group"
                   >
                     <span>Request Free Project Quote</span>
-                    <Send className="w-3.5 h-3.5" />
+                    <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                   </button>
                 </div>
               </form>
@@ -530,10 +529,10 @@ export const ContactSection: React.FC<Props> = ({ initialTab = "quote" }) => {
 
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-bold bg-[#18CB96] text-[#0B0B10] hover:bg-[#14AF81] transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(24,203,150,0.35)] cursor-pointer"
+                    className="btn-primary-halo w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-bold flex items-center justify-center gap-2 cursor-pointer group"
                   >
                     <span>Confirm Free Consultation</span>
-                    <Calendar className="w-3.5 h-3.5" />
+                    <Calendar className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                   </button>
                 </div>
               </form>

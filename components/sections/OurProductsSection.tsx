@@ -187,10 +187,10 @@ export const OurProductsSection: React.FC = () => {
 
               <Link
                 href={`/contact?type=quote&product=${prorota.id}`}
-                className="px-5 py-2 rounded-full text-xs font-bold bg-[#18CB96] text-[#0B0B10] hover:bg-[#14AF81] transition-all flex items-center gap-1.5 shadow-[0_0_20px_rgba(24,203,150,0.3)] hover:shadow-[0_0_25px_rgba(24,203,150,0.5)] cursor-pointer"
+                className="btn-primary-halo px-6 py-2.5 rounded-full text-xs font-bold flex items-center gap-2 cursor-pointer group"
               >
                 <span>Build Similar Platform</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
             </div>
           </SpotlightCard>
@@ -272,10 +272,10 @@ export const OurProductsSection: React.FC = () => {
 
               <Link
                 href={`/contact?type=quote&product=${nexeats.id}`}
-                className="text-xs font-bold text-[#18CB96] hover:text-[#4ED7AE] flex items-center gap-1 transition-colors"
+                className="btn-primary-halo px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition-all group"
               >
                 <span>Build Marketplace</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
               </Link>
             </div>
           </SpotlightCard>
@@ -347,10 +347,10 @@ export const OurProductsSection: React.FC = () => {
 
                   <Link
                     href={`/contact?type=quote&product=${nexrider.id}`}
-                    className="px-6 py-2.5 rounded-full text-xs font-bold bg-[#18CB96] text-[#0B0B10] hover:bg-[#14AF81] transition-all flex items-center justify-center gap-1.5 shadow-[0_0_20px_rgba(24,203,150,0.3)] w-full sm:w-auto"
+                    className="btn-primary-halo px-6 py-2.5 rounded-full text-xs font-bold flex items-center justify-center gap-2 w-full sm:w-auto group cursor-pointer"
                   >
                     <span>Inquire Platform Build</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
                   </Link>
                 </div>
               </div>

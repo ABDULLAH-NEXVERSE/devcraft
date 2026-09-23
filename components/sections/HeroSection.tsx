@@ -2,131 +2,161 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, MessageSquare } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { Hero3DCanvas } from "../3d/Hero3DCanvas";
+import { HeroVisual } from "../hero/HeroVisual";
 import { homeData } from "@/data/homeData";
 
 export const HeroSection: React.FC = () => {
-  const { hero } = homeData;
-
   return (
-    <section className="relative min-h-[92vh] pt-32 sm:pt-36 pb-20 px-4 sm:px-6 overflow-hidden flex flex-col justify-center bg-[#07070A]">
-      {/* Rich Dark Gradient Canvas Anchored by Darkest Brand Shade */}
+    <section className="relative min-h-[92vh] pt-32 sm:pt-36 pb-24 px-4 sm:px-6 overflow-hidden flex flex-col justify-center bg-[#0b091d]">
+      {/* Layer 1: Dark Hero Ambient Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(24,203,150,0.14),transparent_75%)]" />
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-[#18CB96]/5 blur-[160px] rounded-full" />
-        <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-[#0F0E15] blur-[100px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(24,203,150,0.12),transparent_75%)]" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#18CB96]/5 blur-[150px] rounded-full" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0E0D15] blur-[100px]" />
       </div>
 
-      {/* 3D Canvas / Logo Motif Background */}
-      <div className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none opacity-85">
-        <div className="w-full max-w-6xl h-[320px] sm:h-[420px] lg:h-[520px]">
-          <Hero3DCanvas />
-        </div>
-      </div>
-
-      {/* Gradient overlays for crisp text contrast */}
-      <div className="absolute inset-0 z-[2] pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07070A] via-[#07070A]/85 to-transparent opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#07070A] via-transparent to-transparent opacity-70" />
-      </div>
+      {/* Layer 2: Central 3D V Video Background */}
+      <HeroVisual />
 
       {/* Foreground Content */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-8 flex flex-col items-start text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Focused, Masterclass Typography & Clear CTAs */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* Eyebrow Status Pill */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#18CB96]/10 border border-[#18CB96]/25 text-[#18CB96] text-xs font-mono mb-5 backdrop-blur-md"
+              transition={{ duration: 0.4 }}
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#14af81]/15 border border-[#14af81]/30 text-[#14af81] text-xs font-mono mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(20,175,129,0.15)]"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#18CB96] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#18CB96]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#14af81] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#14af81]" />
               </span>
-              <span>{hero.badge}</span>
+              <span className="font-semibold tracking-wide">Full-Stack Engineering · UK &amp; Pakistan</span>
             </motion.div>
 
-            {/* H1 Headline */}
+            {/* H1 Headline - Masterclass Clarity */}
             <motion.h1
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.08 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-display font-extrabold tracking-tight text-white leading-[1.12] mb-5 max-w-3xl"
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-extrabold tracking-tight text-white leading-[1.1] mb-6 max-w-2xl"
             >
               Web, Mobile &amp; AI Software —{" "}
-              <span className="text-gradient-emerald">Crafted by Two Teams,</span> Delivered Around the Clock
+              <span className="text-gradient-emerald">Crafted with Intent.</span>
             </motion.h1>
 
-            {/* Subheadline */}
+            {/* Subheadline with optimal line height and cognitive calmness */}
             <motion.p
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.16 }}
-              className="text-sm sm:text-base md:text-lg font-body text-[#A4A2B2] max-w-2xl leading-relaxed mb-8"
+              transition={{ duration: 0.5, delay: 0.16 }}
+              className="text-base sm:text-lg font-body text-[#A4A2B2] max-w-xl leading-relaxed mb-10"
             >
-              {hero.subheadline}
+              Built by two coordinated teams across Sheffield, UK and Lahore, Pakistan. We design, engineer, and operate mission-critical digital products around the clock with zero overnight lag.
             </motion.p>
 
-            {/* Dual CTAs: High-contrast brand neon reserved strictly for action */}
+            {/* Focused Action CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.24 }}
-              className="flex flex-wrap items-center gap-3 w-full sm:w-auto mb-3"
+              transition={{ duration: 0.5, delay: 0.24 }}
+              className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-8"
             >
               <Link
-                href={hero.primaryCta.href}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold bg-[#18CB96] text-[#07070A] hover:bg-[#14AF81] transition-all duration-300 shadow-[0_0_25px_rgba(24,203,150,0.35)] hover:shadow-[0_0_35px_rgba(24,203,150,0.6)] flex items-center justify-center gap-2 group cursor-pointer"
+                href="/contact?type=quote"
+                className="btn-primary-halo w-full sm:w-auto px-8 py-4 rounded-full text-sm font-bold flex items-center justify-center gap-2.5 group cursor-pointer"
               >
-                <span>{hero.primaryCta.label}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span>Start Your Project</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
 
               <Link
-                href={hero.secondaryCta.href}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white glass-panel hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 border border-white/15"
+                href="/work"
+                className="btn-secondary-halo w-full sm:w-auto px-7 py-4 rounded-full text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer"
               >
-                <MessageSquare className="w-4 h-4 text-[#18CB96]" />
-                <span>{hero.secondaryCta.label}</span>
+                <Sparkles className="w-4 h-4 text-[#18CB96]" />
+                <span>Explore Our Work</span>
               </Link>
-
-              <div className="flex items-center gap-3 text-xs font-mono text-[#A4A2B2] pt-2 sm:pt-0 sm:pl-3">
-                <Link href="/products" className="hover:text-[#18CB96] transition-colors underline decoration-white/20 underline-offset-4">
-                  Our Products &rarr;
-                </Link>
-                <span className="text-white/20">&bull;</span>
-                <Link href="/services" className="hover:text-[#18CB96] transition-colors underline decoration-white/20 underline-offset-4">
-                  Explore Services &rarr;
-                </Link>
-              </div>
             </motion.div>
 
-            {/* Highlight Metrics with High-Contrast Neon Accent */}
+            {/* Subtle trust signal */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="mt-8 pt-6 border-t border-white/10 w-full grid grid-cols-2 sm:grid-cols-4 gap-4"
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="flex items-center gap-3 text-xs font-mono text-[#6B697D] pt-2"
             >
-              {hero.highlightMetrics.map((m, idx) => (
-                <div key={idx}>
-                  <div className="text-xl sm:text-2xl font-extrabold text-white font-mono flex items-center gap-1">
-                    <span className="text-[#18CB96]">{m.value}</span>
-                  </div>
-                  <div className="text-xs text-white font-semibold mt-0.5">{m.label}</div>
-                  <div className="text-[11px] text-[#A4A2B2] mt-0.5 leading-tight hidden sm:block">
-                    {m.description}
-                  </div>
-                </div>
-              ))}
+              <span className="w-1.5 h-1.5 rounded-full bg-[#18CB96]" />
+              <span>Production-tested across Logistics, FinTech, E-Commerce &amp; Compliance</span>
             </motion.div>
           </div>
 
-          <div className="lg:col-span-4 hidden lg:block" />
+          {/* Right Column: High-Craftsmanship Live Delivery Telemetry Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5 flex justify-center lg:justify-end"
+          >
+            <div className="w-full max-w-sm lg:max-w-[400px] p-5 sm:p-6 rounded-3xl bg-[#0b091d]/90 backdrop-blur-2xl border border-[#14af81]/20 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.8)] relative overflow-hidden group">
+              {/* Subtle ambient corner light */}
+              <div className="absolute -top-16 -right-16 w-36 h-36 bg-[#14af81]/15 rounded-full blur-2xl pointer-events-none group-hover:bg-[#14af81]/25 transition-all duration-500" />
+
+              {/* Header */}
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
+                <div className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#14af81] animate-pulse" />
+                  <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                    Two-Team Delivery Engine
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#14af81]/15 text-[#14af81] border border-[#14af81]/30">
+                  Follow-The-Sun
+                </span>
+              </div>
+
+              {/* Hub 1: UK */}
+              <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] mb-2.5 hover:border-[#14af81]/30 transition-all">
+                <div className="flex items-center justify-between mb-0.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs sm:text-sm font-bold text-white">Sheffield, United Kingdom</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-white/10 text-[#A4A2B2]">GMT / BST</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-[#18CB96] font-semibold">Active</span>
+                </div>
+                <p className="text-[11px] text-[#A4A2B2]">Product Strategy, UI/UX Systems &amp; Client Direction</p>
+              </div>
+
+              {/* Hub 2: Pakistan */}
+              <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] mb-3.5 hover:border-[#14af81]/30 transition-all">
+                <div className="flex items-center justify-between mb-0.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs sm:text-sm font-bold text-white">Lahore, Pakistan</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-white/10 text-[#A4A2B2]">PKT (UTC+5)</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-[#14af81] font-semibold">Active</span>
+                </div>
+                <p className="text-[11px] text-[#A4A2B2]">Full-Stack Engineering, AI Pipelines &amp; 24/7 Operations</p>
+              </div>
+
+              {/* Metrics micro-strip inside card */}
+              <div className="grid grid-cols-2 gap-2.5 pt-1">
+                <div className="p-2.5 rounded-xl bg-black/40 border border-white/[0.05]">
+                  <div className="text-base font-mono font-extrabold text-[#14af81]">24/7</div>
+                  <div className="text-[9px] text-[#A4A2B2] uppercase tracking-wider mt-0.5">Zero Overnight Lag</div>
+                </div>
+                <div className="p-2.5 rounded-xl bg-black/40 border border-white/[0.05]">
+                  <div className="text-base font-mono font-extrabold text-white">99.4%</div>
+                  <div className="text-[9px] text-[#A4A2B2] uppercase tracking-wider mt-0.5">Algorithm Accuracy</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
