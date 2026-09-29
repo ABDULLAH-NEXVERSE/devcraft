@@ -1,38 +1,47 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { homeData } from "@/data/homeData";
+
+const partners = [
+  { name: "Kamraj Enterprises", logo: "/assets/clients/kamraj.svg" },
+  { name: "Prime Commodities", logo: "/assets/clients/primecommodities.svg" },
+  { name: "Duralean UK", logo: "/assets/clients/duralean.svg" },
+  { name: "ProRota", logo: "/assets/clients/prorota.svg" },
+  { name: "NexEats", logo: "/assets/clients/nexeats.svg" },
+  { name: "Odlings MCR", logo: "/assets/clients/odlings.svg" },
+  { name: "Westwood", logo: "/assets/clients/westwood.svg" },
+  { name: "Unify Pro", logo: "/assets/clients/unify-pro.svg" },
+  { name: "Limitless", logo: "/assets/clients/limitless.svg" },
+  { name: "Ahlmark Lines", logo: "/assets/clients/ahlmark.svg" },
+  { name: "Airco", logo: "/assets/clients/airco.svg" },
+];
 
 export const LogoTicker: React.FC = () => {
+  const displayPartners = [...partners, ...partners];
+
   return (
-    <section className="py-12 border-y border-white/[0.06] bg-[#0b091da1] backdrop-blur-md relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
-        <p className="text-xs font-mono uppercase tracking-widest text-[#A4A2B2]">
-          Organisations &amp; Platforms We Have Built For
-        </p>
-      </div>
-
-      <div className="relative w-full overflow-hidden flex">
-        {/* Edge fade gradients */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-r from-[#0b091d] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-l from-[#0b091d] to-transparent z-10 pointer-events-none" />
-
-        <div className="animate-marquee flex items-center gap-14 whitespace-nowrap">
-          {homeData.marqueeClients.concat(homeData.marqueeClients).map((partner, idx) => (
+    <section className="mt-20 py-8 md:mt-28 overflow-hidden">
+      <p className="mx-auto mb-5 max-w-7xl px-6 text-xs font-mono uppercase tracking-wider text-[var(--ink-soft)]">
+        Organisations we&apos;ve worked with
+      </p>
+      <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="flex w-max animate-marquee items-center gap-14 whitespace-nowrap">
+          {displayPartners.map((p, i) => (
             <div
-              key={`${partner.name}-${idx}`}
-              className="flex items-center justify-center py-2 px-4 cursor-default group"
+              key={`${p.name}-${i}`}
+              className="flex items-center gap-3 opacity-60 transition-opacity hover:opacity-100"
             >
-              <div className="w-20 h-16 sm:w-24 sm:h-18 relative flex items-center justify-center">
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={90}
-                  height={50}
-                  className="object-contain filter grayscale brightness-0 invert opacity-65 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
-                />
-              </div>
+              <img
+                src={p.logo}
+                alt={p.name}
+                className="h-6 w-auto max-w-[100px] object-contain brightness-0 invert opacity-70"
+                onError={(e) => {
+                  (e.currentTarget as HTMLElement).style.display = "none";
+                }}
+              />
+              <span className="font-[var(--font-display)] text-base font-medium tracking-wide text-[#8B90A6]">
+                {p.name}
+              </span>
             </div>
           ))}
         </div>

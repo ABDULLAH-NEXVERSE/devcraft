@@ -30,7 +30,7 @@
   body {
     background-color: var(--bg-void);
     color: var(--text-primary);
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   button:focus:not(:focus-visible),

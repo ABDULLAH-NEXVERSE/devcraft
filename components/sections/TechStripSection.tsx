@@ -1,74 +1,134 @@
+"use client";
+
 import React from "react";
-import Link from "next/link";
-import { Cpu } from "lucide-react";
-import { TechLogo } from "@/components/icons/TechLogos";
+import { motion } from "framer-motion";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiLaravel,
+  SiFlutter,
+  SiNodedotjs,
+  SiPython,
+  SiWordpress,
+  SiTypescript,
+  SiFigma,
+} from "react-icons/si";
+import { FadeInWhenVisible } from "@/components/ui/BrandImage";
 
-interface TechPill {
-  name: string;
-  category: string;
-  usage: string;
-}
-
-const coreTech: TechPill[] = [
-  { name: "Next.js", category: "Frontend", usage: "Sub-Second Web Apps" },
-  { name: "React", category: "Frontend", usage: "Dynamic Client Portals" },
-  { name: "Flutter", category: "Mobile", usage: "Cross-Platform Apps" },
-  { name: "Kotlin", category: "Mobile", usage: "Native Android Telemetry" },
-  { name: "Laravel", category: "Backend", usage: "Enterprise Business Logic" },
-  { name: "Node.js", category: "Backend", usage: "High-Concurrency APIs" },
-  { name: "Python", category: "AI/ML", usage: "Applied Machine Learning" },
-  { name: "WordPress", category: "CMS", usage: "Custom Themes & Widgets" },
+const stack = [
+  { name: "React", Icon: SiReact, color: "#61DAFB" },
+  { name: "Next.js", Icon: SiNextdotjs, color: "#FFFFFF" },
+  { name: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
+  { name: "Laravel", Icon: SiLaravel, color: "#FF2D20" },
+  { name: "Flutter", Icon: SiFlutter, color: "#27AEE3" },
+  { name: "Node.js", Icon: SiNodedotjs, color: "#5FA04E" },
+  { name: "Python", Icon: SiPython, color: "#4B8BBE" },
+  { name: "WordPress", Icon: SiWordpress, color: "#3894C7" },
+  { name: "Figma", Icon: SiFigma, color: "#F24E1E" },
 ];
+
+function TechOrbit() {
+  return (
+    <div className="relative mx-auto flex h-[360px] w-full max-w-[360px] items-center justify-center sm:h-[420px] sm:max-w-[420px] md:h-[500px] md:max-w-[500px]">
+      {/* Central static anchor with logo green ambient glow */}
+      <div className="z-10 flex h-28 w-28 flex-col items-center justify-center rounded-full border border-[var(--accent)]/40 bg-[var(--bg)]/90 text-center backdrop-blur-md shadow-[0_0_40px_rgba(24,203,150,0.2)] sm:h-32 sm:w-32 md:h-40 md:w-40">
+        <span className="font-[var(--font-display)] text-sm font-bold tracking-wider text-[var(--accent)] uppercase sm:text-base md:text-lg">
+          Technology
+        </span>
+        <span className="font-[var(--font-display)] text-[10px] tracking-widest text-[var(--ink-soft)] uppercase sm:text-xs">
+          Stack
+        </span>
+      </div>
+
+      {/* Orbit Track Lines */}
+      <div className="absolute h-[220px] w-[220px] rounded-full border border-dashed border-[var(--line)] sm:h-[260px] sm:w-[260px] md:h-[320px] md:w-[320px]" />
+      <div className="absolute h-[320px] w-[320px] rounded-full border border-[var(--line)]/50 sm:h-[380px] sm:w-[380px] md:h-[460px] md:w-[460px]" />
+
+      {/* Rotating Ring 1 (Inner Stack - 5 items) */}
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
+        className="absolute h-[220px] w-[220px] sm:h-[260px] sm:w-[260px] md:h-[320px] md:w-[320px]"
+      >
+        {stack.slice(0, 5).map(({ name, Icon, color }, i) => {
+          const angle = (i / 5) * (2 * Math.PI);
+          return (
+            <div
+              key={name}
+              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+              style={{
+                left: `calc(50% + ${Math.cos(angle) * 50}%)`,
+                top: `calc(50% + ${Math.sin(angle) * 50}%)`,
+              }}
+            >
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
+                className="group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-[var(--line)] bg-[#0f1523]/90 text-white shadow-lg transition-transform hover:scale-125"
+              >
+                <Icon className="h-4 w-4 sm:h-5 sm:w-5 transition-colors" style={{ color }} />
+                <span className="pointer-events-none absolute -bottom-7 whitespace-nowrap rounded bg-[#182032] px-2 py-0.5 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 z-20">
+                  {name}
+                </span>
+              </motion.div>
+            </div>
+          );
+        })}
+      </motion.div>
+
+      {/* Rotating Ring 2 (Outer Stack - 4 items - Counter Rotation) */}
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 52, repeat: Infinity, ease: "linear" }}
+        className="absolute h-[320px] w-[320px] sm:h-[380px] sm:w-[380px] md:h-[460px] md:w-[460px]"
+      >
+        {stack.slice(5).map(({ name, Icon, color }, i) => {
+          const angle = (i / 4) * (2 * Math.PI);
+          return (
+            <div
+              key={name}
+              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+              style={{
+                left: `calc(50% + ${Math.cos(angle) * 50}%)`,
+                top: `calc(50% + ${Math.sin(angle) * 50}%)`,
+              }}
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 52, repeat: Infinity, ease: "linear" }}
+                className="group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-[var(--line)] bg-[#0f1523]/90 text-white shadow-lg transition-transform hover:scale-125"
+              >
+                <Icon className="h-4 w-4 sm:h-5 sm:w-5 transition-colors" style={{ color }} />
+                <span className="pointer-events-none absolute -bottom-7 whitespace-nowrap rounded bg-[#182032] px-2 py-0.5 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 z-20">
+                  {name}
+                </span>
+              </motion.div>
+            </div>
+          );
+        })}
+      </motion.div>
+    </div>
+  );
+}
 
 export const TechStripSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#14af81] text-[#0B091D] py-16 sm:py-20 relative overflow-hidden shadow-inner">
-      {/* Subtle ambient lighting */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#0B091D]/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative mx-auto max-w-7xl px-6 py-24 md:py-32 overflow-hidden">
+      <FadeInWhenVisible className="text-center">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">
+          Engineered For Performance
+        </span>
+        <h2 className="mt-3 font-[var(--font-display)] text-4xl font-semibold leading-tight md:text-5xl">
+          Our Technology Stack
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl text-base text-[var(--ink-soft)]">
+          We utilize high-performance modern frameworks and tools engineered for
+          speed, scalability, and long-term security.
+        </p>
+      </FadeInWhenVisible>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10 pb-6 border-b border-white/20">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase text-[#0B091D] bg-white/25 px-3 py-1 rounded-full tracking-wider mb-3 font-bold border border-white/30">
-              <Cpu className="w-4 h-4" />
-              <span>Modern Technology Stack</span>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">
-              Engineered with the Right Tools for Every Layer
-            </h3>
-          </div>
-
-          <Link
-            href="/technologies"
-            className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#0B091D] bg-white hover:bg-[#e4f9f3] px-5 py-2.5 rounded-full transition-all shadow-sm self-start lg:self-auto group"
-          >
-            <span>Full Technology Architecture</span>
-            <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-          </Link>
-        </div>
-
-        {/* Core Stack Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3.5">
-          {coreTech.map((tech) => (
-            <div
-              key={tech.name}
-              className="p-4 rounded-2xl bg-white/95 border border-white/50 hover:bg-white hover:-translate-y-1 transition-all duration-300 text-center group cursor-default flex flex-col items-center justify-between min-h-[120px] shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_24px_rgba(11,9,29,0.15)]"
-            >
-              <div className="w-10 h-10 rounded-xl bg-[#e4f9f3] border border-[#14af81]/25 p-2 flex items-center justify-center mb-2 group-hover:scale-110 group-hover:bg-[#14af81]/15 transition-all duration-300">
-                <TechLogo name={tech.name} className="w-5 h-5 text-[#0B091D]" />
-              </div>
-              <div>
-                <div className="text-xs font-bold text-[#0B091D] font-mono">
-                  {tech.name}
-                </div>
-                <div className="text-[10px] text-[#4B5563] mt-0.5 font-medium">
-                  {tech.category}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="mt-14 md:mt-16">
+        <TechOrbit />
       </div>
     </section>
   );

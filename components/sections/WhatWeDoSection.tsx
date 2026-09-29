@@ -1,184 +1,146 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Globe,
-  Smartphone,
-  Cpu,
-  ShoppingBag,
-  Layout,
-  Sparkles,
-  ShieldCheck,
-  ArrowUpRight,
   Code2,
-  ChevronDown,
+  Smartphone,
+  Boxes,
+  ShoppingCart,
+  PenTool,
+  BrainCircuit,
+  LifeBuoy,
 } from "lucide-react";
-import { servicesData } from "@/data/servicesData";
+import { BrandImage, FadeInWhenVisible } from "@/components/ui/BrandImage";
 
-const iconMap: Record<string, React.ElementType> = {
-  "web-development": Globe,
-  "mobile-app-development": Smartphone,
-  "custom-software-development": Cpu,
-  "ecommerce-development": ShoppingBag,
-  "ui-ux-design": Layout,
-  "ai-ml-solutions": Sparkles,
-  "maintenance-support": ShieldCheck,
-};
+const services = [
+  {
+    name: "Web Development",
+    copy: "Marketing sites, web apps and portals on WordPress, Laravel, Next.js and React.",
+    icon: Code2,
+    img: "/assets/services/web-platform-banner.webp",
+  },
+  {
+    name: "Mobile App Development",
+    copy: "Native Kotlin and cross-platform Flutter apps engineered for high performance.",
+    icon: Smartphone,
+    img: "/assets/services/mobile-app-engineering.webp",
+  },
+  {
+    name: "Custom Software",
+    copy: "Bespoke backend systems and internal tools built around how your organization operates.",
+    icon: Boxes,
+    img: "/assets/services/internal-systems-hero.jpg",
+  },
+  {
+    name: "E-commerce",
+    copy: "Storefronts and marketplaces that handle real transaction volume with zero checkout friction.",
+    icon: ShoppingCart,
+    img: "/assets/portfolio/alif-web-store.webp",
+  },
+  {
+    name: "UI/UX Design",
+    copy: "Research and high-fidelity design, handed off design-system-ready with pixel perfection.",
+    icon: PenTool,
+    img: "/assets/services/design-service-craft.jpg",
+  },
+  {
+    name: "AI & ML Solutions",
+    copy: "Applied AI — recommendation engines, automated workflows, and conversational assistants.",
+    icon: BrainCircuit,
+    img: "/assets/services/agentic-ai-neural-core.webp",
+  },
+  {
+    name: "Maintenance & Support",
+    copy: "Continuous monitoring, security patching and 24/7 issue response across Sheffield and Lahore.",
+    icon: LifeBuoy,
+    img: "/assets/services/safeguard-security-hero.jpg",
+  },
+];
 
 export const WhatWeDoSection: React.FC = () => {
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const [activeService, setActiveService] = useState(0);
 
   return (
-    <section className="w-full bg-[#e4f9f3] text-[#0B091D] py-24 sm:py-32 relative overflow-hidden border-y border-[#14af81]/20">
-      {/* Subtle ambient light gradient */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#14af81]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/60 rounded-full blur-[120px] pointer-events-none" />
+    <section
+      className="px-6 py-28 md:py-36"
+      style={{ backgroundColor: "#ffffff", color: "#0f1117" }}
+    >
+      <div className="mx-auto max-w-7xl">
+        <FadeInWhenVisible>
+          <h2
+            className="max-w-xl font-[var(--font-display)] text-4xl font-semibold leading-tight md:text-5xl"
+            style={{ color: "#0f1117" }}
+          >
+            One partner for the whole build.
+          </h2>
+        </FadeInWhenVisible>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-16">
-          <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#14af81]/15 border border-[#14af81]/30 text-[#14af81] text-xs font-mono uppercase tracking-wider mb-5 font-bold shadow-sm">
-              <Code2 className="w-3.5 h-3.5" />
-              <span>Full-Lifecycle Capabilities</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0B091D] mb-5 font-display leading-[1.08]">
-              What We <br />
-              <span className="text-[#14af81]">Build &amp; Operate.</span>
-            </h2>
-            <p className="text-sm sm:text-base text-[#374151] leading-relaxed max-w-md font-medium">
-              We architect, engineer, and support digital products end-to-end.
-              From intuitive user interfaces and resilient backend systems to
-              applied machine learning and continuous production operations.
-            </p>
-            <div className="mt-8">
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#14af81] hover:text-[#0B091D] transition-colors py-1 group"
-              >
-                <span>Explore all 7 service lines</span>
-                <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-              </Link>
-            </div>
+        <div className="mt-20 grid gap-14 md:grid-cols-[1.3fr_1fr]">
+          <div onMouseLeave={() => setActiveService(0)}>
+            {services.map((s, i) => {
+              const Icon = s.icon;
+              const active = activeService === i;
+              return (
+                <motion.div
+                  key={s.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  onMouseEnter={() => setActiveService(i)}
+                  className={`group flex cursor-pointer items-center gap-5 py-7 transition-colors border-t ${
+                    i === services.length - 1 ? "border-b" : ""
+                  }`}
+                  style={{ borderColor: "rgba(0,0,0,0.1)" }}
+                >
+                  <Icon
+                    className={`h-5 w-5 shrink-0 transition-colors ${
+                      active ? "text-[var(--accent)]" : "text-[#b0b5c8]"
+                    }`}
+                  />
+                  <h3
+                    className={`font-[var(--font-display)] text-2xl font-medium transition-colors md:text-[1.9rem] ${
+                      active ? "text-[#0f1117]" : "text-[#9ea4ba]"
+                    }`}
+                  >
+                    {s.name}
+                  </h3>
+                </motion.div>
+              );
+            })}
           </div>
 
-          {/* Accordion list */}
-          <div className="lg:col-span-7">
-            <div className="divide-y divide-[#14af81]/25">
-              {servicesData.map((service, idx) => {
-                const Icon = iconMap[service.slug] || Code2;
-                const isOpen = openIdx === idx;
-
-                return (
-                  <motion.div
-                    key={service.slug}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  >
-                    <button
-                      onClick={() => setOpenIdx(isOpen ? null : idx)}
-                      className="group w-full text-left flex items-center gap-5 py-6 sm:py-7 transition-all duration-200 cursor-pointer outline-none"
+          <div className="relative hidden md:block">
+            <div
+              className="sticky top-28 overflow-hidden rounded-2xl border bg-[#f7faf9]"
+              style={{ borderColor: "rgba(0,0,0,0.1)" }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeService}
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <BrandImage
+                    src={services[activeService].img}
+                    alt={services[activeService].name}
+                    className="h-80 w-full"
+                    tint="green"
+                    parallax={false}
+                  />
+                  <div className="p-5">
+                    <p
+                      className="text-sm leading-relaxed"
+                      style={{ color: "#5b6068" }}
                     >
-                      {/* Step number */}
-                      <span className="font-mono text-xs font-bold text-[#14af81] w-6 shrink-0">
-                        {String(idx + 1).padStart(2, "0")}
-                      </span>
-
-                      {/* Icon */}
-                      <div
-                        className={`p-2.5 rounded-xl transition-all duration-300 shrink-0 ${
-                          isOpen
-                            ? "bg-[#14af81] text-white shadow-md shadow-[#14af81]/30"
-                            : "bg-white text-[#14af81] shadow-sm border border-[#14af81]/20 group-hover:bg-[#14af81] group-hover:text-white"
-                        }`}
-                      >
-                        <Icon className="w-5 h-5" />
-                      </div>
-
-                      {/* Title + badge */}
-                      <div className="flex-1 min-w-0 flex items-center gap-3">
-                        <h3
-                          className={`text-base sm:text-lg font-bold transition-colors ${
-                            isOpen
-                              ? "text-[#14af81]"
-                              : "text-[#0B091D] group-hover:text-[#14af81]"
-                          }`}
-                        >
-                          {service.title}
-                        </h3>
-                        {service.badge && (
-                          <span className="text-[9px] font-mono px-2.5 py-0.5 rounded-full bg-[#14af81]/15 text-[#14af81] border border-[#14af81]/30 font-bold uppercase hidden sm:block">
-                            {service.badge}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Chevron */}
-                      <ChevronDown
-                        className={`w-4 h-4 shrink-0 transition-all duration-300 ${
-                          isOpen
-                            ? "rotate-180 text-[#14af81]"
-                            : "text-[#6B7280] group-hover:text-[#14af81]"
-                        }`}
-                      />
-                    </button>
-
-                    {/* Expandable detail */}
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                          className="overflow-hidden"
-                        >
-                          <div className="pl-[4.25rem] pb-6 space-y-4">
-                            <p className="text-sm text-[#374151] leading-relaxed max-w-xl font-medium">
-                              {service.shortDesc}
-                            </p>
-
-                            {/* Tech tags */}
-                            <div className="flex flex-wrap gap-2">
-                              {service.techStack.slice(0, 5).map((tech) => (
-                                <span
-                                  key={tech}
-                                  className="text-[10px] font-mono font-semibold px-2.5 py-1 rounded-md bg-white text-[#0B091D] border border-[#14af81]/30 shadow-xs"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-
-                            {/* Metric + CTA */}
-                            <div className="flex items-center justify-between pt-1">
-                              {service.metrics[0] && (
-                                <span className="text-xs font-mono text-[#4B5563]">
-                                  {service.metrics[0].label}:{" "}
-                                  <span className="text-[#0B091D] font-bold">
-                                    {service.metrics[0].value}
-                                  </span>
-                                </span>
-                              )}
-                              <Link
-                                href={`/services/${service.slug}`}
-                                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#14af81] hover:text-[#0B091D] transition-all group/link"
-                              >
-                                <span>Full service brief</span>
-                                <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                              </Link>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                );
-              })}
+                      {services[activeService].copy}
+                    </p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>

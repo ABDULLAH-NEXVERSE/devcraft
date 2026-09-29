@@ -1,167 +1,101 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import React, { useRef } from "react";
 import Link from "next/link";
-import { HeroVisual } from "../hero/HeroVisual";
-import { homeData } from "@/data/homeData";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { BrandImage, FadeInWhenVisible } from "@/components/ui/BrandImage";
 
 export const HeroSection: React.FC = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroImgY = useTransform(heroProgress, [0, 1], ["0%", "18%"]);
+  const cardAY = useTransform(heroProgress, [0, 1], ["0%", "-10%"]);
+  const cardBY = useTransform(heroProgress, [0, 1], ["0%", "12%"]);
+
   return (
-    <section className="relative min-h-[92vh] pt-32 sm:pt-36 pb-24 px-4 sm:px-6 overflow-hidden flex flex-col justify-center bg-[#0b091d]">
-      {/* Layer 1: Dark Hero Ambient Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(24,203,150,0.12),transparent_75%)]" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#18CB96]/5 blur-[150px] rounded-full" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0E0D15] blur-[100px]" />
+    <section ref={heroRef} className="relative pt-24 md:pt-32 overflow-hidden">
+      {/* 3D Artwork Background Layer */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <img
+          src="/assets/hero/hero-3d-v-poster.png"
+          alt="DevCraft 3D Visual"
+          className="h-full w-full object-cover object-center opacity-30 mix-blend-screen scale-105"
+        />
+        {/* Soft edge ambient wash to guarantee high text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg)]/75 via-[var(--bg)]/40 to-[var(--bg)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg)]/85 via-[var(--bg)]/50 to-transparent" />
+        <div className="absolute top-0 right-1/4 h-[500px] w-[500px] rounded-full bg-[var(--accent)]/10 blur-[160px]" />
       </div>
 
-      {/* Layer 2: Central 3D V Video Background */}
-      <HeroVisual />
-
-      {/* Foreground Content */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Focused, Masterclass Typography & Clear CTAs */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Eyebrow Status Pill */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#14af81]/15 border border-[#14af81]/30 text-[#14af81] text-xs font-mono mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(20,175,129,0.15)]"
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <FadeInWhenVisible className="max-w-4xl">
+          <h1 className="font-[var(--font-display)] text-[2.9rem] font-semibold leading-[1.04] tracking-tight md:text-[5.2rem]">
+            We build the software running your operation.
+          </h1>
+          <p className="mt-8 max-w-xl text-[16px] leading-relaxed text-[var(--ink-soft)] md:text-[17px]">
+            Web platforms, mobile apps, custom systems and AI products — designed,
+            built and supported by two teams working around the clock, for
+            logistics, procurement, e-commerce, fintech and healthcare
+            businesses.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <Link
+              href="/contact"
+              className="rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-[#06120E] transition hover:scale-[1.03] hover:shadow-[0_0_28px_rgba(24,203,150,0.35)]"
             >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#14af81] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#14af81]" />
-              </span>
-              <span className="font-semibold tracking-wide">Full-Stack Engineering · UK &amp; Pakistan</span>
-            </motion.div>
-
-            {/* H1 Headline - Masterclass Clarity */}
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-extrabold tracking-tight text-white leading-[1.1] mb-6 max-w-2xl"
+              Get a Free Quote
+            </Link>
+            <Link
+              href="/contact#consultation"
+              className="rounded-full border border-[var(--line)] px-6 py-3 text-sm font-medium text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
-              Web, Mobile &amp; AI Software —{" "}
-              <span className="text-gradient-emerald">Crafted with Intent.</span>
-            </motion.h1>
-
-            {/* Subheadline with optimal line height and cognitive calmness */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.16 }}
-              className="text-base sm:text-lg font-body text-[#A4A2B2] max-w-xl leading-relaxed mb-10"
-            >
-              Built by two coordinated teams across Sheffield, UK and Lahore, Pakistan. We design, engineer, and operate mission-critical digital products around the clock with zero overnight lag.
-            </motion.p>
-
-            {/* Focused Action CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.24 }}
-              className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-8"
-            >
-              <Link
-                href="/contact?type=quote"
-                className="btn-primary-halo w-full sm:w-auto px-8 py-4 rounded-full text-sm font-bold flex items-center justify-center gap-2.5 group cursor-pointer"
-              >
-                <span>Start Your Project</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-              </Link>
-
-              <Link
-                href="/work"
-                className="btn-secondary-halo w-full sm:w-auto px-7 py-4 rounded-full text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Sparkles className="w-4 h-4 text-[#18CB96]" />
-                <span>Explore Our Work</span>
-              </Link>
-            </motion.div>
-
-            {/* Subtle trust signal */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex items-center gap-3 text-xs font-mono text-[#6B697D] pt-2"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#18CB96]" />
-              <span>Production-tested across Logistics, FinTech, E-Commerce &amp; Compliance</span>
-            </motion.div>
+              Book a Free Consultation
+            </Link>
           </div>
-
-          {/* Right Column: High-Craftsmanship Live Delivery Telemetry Card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 flex justify-center lg:justify-end"
-          >
-            <div className="w-full max-w-sm lg:max-w-[400px] p-5 sm:p-6 rounded-3xl bg-[#0b091d]/90 backdrop-blur-2xl border border-[#14af81]/20 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.8)] relative overflow-hidden group">
-              {/* Subtle ambient corner light */}
-              <div className="absolute -top-16 -right-16 w-36 h-36 bg-[#14af81]/15 rounded-full blur-2xl pointer-events-none group-hover:bg-[#14af81]/25 transition-all duration-500" />
-
-              {/* Header */}
-              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-                <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#14af81] animate-pulse" />
-                  <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">
-                    Two-Team Delivery Engine
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#14af81]/15 text-[#14af81] border border-[#14af81]/30">
-                  Follow-The-Sun
-                </span>
-              </div>
-
-              {/* Hub 1: UK */}
-              <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] mb-2.5 hover:border-[#14af81]/30 transition-all">
-                <div className="flex items-center justify-between mb-0.5">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs sm:text-sm font-bold text-white">Sheffield, United Kingdom</span>
-                    <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-white/10 text-[#A4A2B2]">GMT / BST</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-[#18CB96] font-semibold">Active</span>
-                </div>
-                <p className="text-[11px] text-[#A4A2B2]">Product Strategy, UI/UX Systems &amp; Client Direction</p>
-              </div>
-
-              {/* Hub 2: Pakistan */}
-              <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] mb-3.5 hover:border-[#14af81]/30 transition-all">
-                <div className="flex items-center justify-between mb-0.5">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs sm:text-sm font-bold text-white">Lahore, Pakistan</span>
-                    <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-white/10 text-[#A4A2B2]">PKT (UTC+5)</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-[#14af81] font-semibold">Active</span>
-                </div>
-                <p className="text-[11px] text-[#A4A2B2]">Full-Stack Engineering, AI Pipelines &amp; 24/7 Operations</p>
-              </div>
-
-              {/* Metrics micro-strip inside card */}
-              <div className="grid grid-cols-2 gap-2.5 pt-1">
-                <div className="p-2.5 rounded-xl bg-black/40 border border-white/[0.05]">
-                  <div className="text-base font-mono font-extrabold text-[#14af81]">24/7</div>
-                  <div className="text-[9px] text-[#A4A2B2] uppercase tracking-wider mt-0.5">Zero Overnight Lag</div>
-                </div>
-                <div className="p-2.5 rounded-xl bg-black/40 border border-white/[0.05]">
-                  <div className="text-base font-mono font-extrabold text-white">99.4%</div>
-                  <div className="text-[9px] text-[#A4A2B2] uppercase tracking-wider mt-0.5">Algorithm Accuracy</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        </FadeInWhenVisible>
       </div>
 
-      {/* Brand Logo V-Apex Custom Section Divider */}
-      <div className="brand-v-divider absolute bottom-0 left-0 right-0" />
+      {/* Hero Visual Card Showcase */}
+      <div className="relative z-10 mx-auto mt-16 h-[380px] max-w-7xl px-6 md:mt-20 md:h-[560px]">
+        <motion.div
+          style={{ y: heroImgY }}
+          className="absolute right-6 top-0 h-full w-[82%] overflow-hidden rounded-[28px] border border-[var(--line)] md:w-[74%]"
+        >
+          <BrandImage
+            src="/assets/portfolio/prorota-solution.webp"
+            alt="DevCraft product interface"
+            className="h-full w-full"
+            tint="green"
+            parallax={false}
+          />
+        </motion.div>
+
+        <motion.div
+          style={{ y: cardAY }}
+          className="absolute left-0 top-6 w-[220px] rotate-[-3deg] rounded-2xl border border-[var(--line)] bg-[var(--bg)]/90 p-4 backdrop-blur md:top-10 md:w-[260px]"
+        >
+          <p className="text-xs text-[var(--ink-soft)]">Live product</p>
+          <p className="mt-1 font-[var(--font-display)] text-lg font-semibold">
+            ProRota
+          </p>
+          <p className="mt-1 text-xs text-[var(--ink-soft)]">
+            Workforce &amp; compliance platform
+          </p>
+        </motion.div>
+
+        <motion.div
+          style={{ y: cardBY }}
+          className="absolute bottom-4 left-4 rotate-[2deg] rounded-2xl border border-[var(--line)] bg-[var(--bg)]/90 px-5 py-3 backdrop-blur md:bottom-10 md:left-8"
+        >
+          <p className="font-[var(--font-display)] text-2xl font-semibold text-[var(--accent)]">
+            24/7
+          </p>
+          <p className="text-xs text-[var(--ink-soft)]">Sheffield &amp; Lahore</p>
+        </motion.div>
+      </div>
     </section>
   );
 };
