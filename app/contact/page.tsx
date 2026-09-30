@@ -1,7 +1,13 @@
 "use client";
 
+// Tell Next.js not to statically prerender this page at build time.
+// The contact page reads URL search params (?type=quote|consultation) so it
+// must always be rendered dynamically — this prevents the Vercel prerender error.
+export const dynamic = "force-dynamic";
+
 import React, { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+
 import {
   motion,
   useScroll,
