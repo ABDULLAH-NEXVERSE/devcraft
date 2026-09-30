@@ -104,9 +104,9 @@ function AboutHero() {
             DevCraft Identity // The Company Behind the Code
           </span>
         </div>
-        <div className="text-xs font-mono text-[#8B90A6]">
+        {/* <div className="text-xs font-mono text-[#8B90A6]">
           SHEFFIELD, UK &bull; LAHORE, PK &bull; FOLLOW-THE-SUN
-        </div>
+        </div> */}
       </div>
 
       {/* Main Hero Grid */}
@@ -387,11 +387,10 @@ function TeamRosterSection() {
             <button
               key={member.name}
               onClick={() => setActiveTeamMember(idx)}
-              className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center gap-4 ${
-                activeTeamMember === idx
+              className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center gap-4 ${activeTeamMember === idx
                   ? "bg-[#18cb96]/10 border-[#18cb96]/40 shadow-[0_0_30px_rgba(24,203,150,0.12)]"
                   : "bg-white/[0.03] border-white/8 hover:border-white/20 hover:bg-white/5"
-              }`}
+                }`}
             >
               <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-[#18cb96]/10 border border-[#18cb96]/20 flex-shrink-0 flex items-center justify-center">
                 {member.avatar ? (

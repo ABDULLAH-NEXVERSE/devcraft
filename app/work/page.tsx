@@ -756,7 +756,7 @@ function DualShoreConversion() {
           <div className="rounded-2xl border border-white/10 p-6 bg-white/[0.02] flex items-center justify-between">
             <div>
               <div className="text-[11px] font-mono text-[#8B90A6] uppercase">
-                SHEFFIELD OPERATIONS // UK
+                UK
               </div>
               <div className="text-xl sm:text-2xl font-mono font-bold text-white mt-1">
                 {ukTime || "12:00:00"}

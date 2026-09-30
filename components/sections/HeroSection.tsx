@@ -93,7 +93,7 @@ export const HeroSection: React.FC = () => {
           <p className="font-[var(--font-display)] text-2xl font-semibold text-[var(--accent)]">
             24/7
           </p>
-          <p className="text-xs text-[var(--ink-soft)]">Sheffield &amp; Lahore</p>
+          {/* <p className="text-xs text-[var(--ink-soft)]">Sheffield &amp; Lahore</p> */}
         </motion.div>
       </div>
     </section>

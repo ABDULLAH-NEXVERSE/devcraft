@@ -621,20 +621,20 @@ export default function ServicesPage() {
                         <div className="sv-stack">
                           {s.stack.length
                             ? s.stack.map((k) => {
-                                const t = TECH[k];
-                                const Ico = t.Icon;
-                                return (
-                                  <span key={k} className="sv-tech">
-                                    <Ico size={17} style={{ color: t.color }} />
-                                    {t.name}
-                                  </span>
-                                );
-                              })
-                            : ["Sheffield, UK", "Lahore, Pakistan", "Around the clock"].map((t) => (
-                                <span key={t} className="sv-tech sv-tech-plain">
-                                  {t}
+                              const t = TECH[k];
+                              const Ico = t.Icon;
+                              return (
+                                <span key={k} className="sv-tech">
+                                  <Ico size={17} style={{ color: t.color }} />
+                                  {t.name}
                                 </span>
-                              ))}
+                              );
+                            })
+                            : ["UK", "Pakistan", "Around the clock"].map((t) => (
+                              <span key={t} className="sv-tech sv-tech-plain">
+                                {t}
+                              </span>
+                            ))}
                         </div>
 
                         <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", alignItems: "center", marginTop: "1.5rem" }}>

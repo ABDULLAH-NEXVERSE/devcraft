@@ -70,9 +70,9 @@ function ContactHero() {
             Response Active // Follow-The-Sun Coverage
           </span>
         </div>
-        <div className="text-xs font-mono text-[#8B90A6]">
+        {/* <div className="text-xs font-mono text-[#8B90A6]">
           SHEFFIELD, UK &bull; LAHORE, PK &bull; 24/7 MONITORED
-        </div>
+        </div> */}
       </div>
 
       {/* Hero Content */}

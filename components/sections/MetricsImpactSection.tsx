@@ -26,7 +26,7 @@ const keyMetrics: MetricStatement[] = [
     number: "24/7",
     label: "Continuous Coverage",
     statement: "Zero overnight development lag through coordinated UK and Pakistan engineering hubs.",
-    footnote: "Sheffield & Lahore synchronized",
+    footnote: "UK & Pakistan synchronized",
     icon: Clock,
   },
   {

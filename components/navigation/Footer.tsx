@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
                 <span className="font-mono text-[#18CB96]">Two Teams · 24/7 Follow-the-Sun Delivery</span>
               </div>
               <p className="text-[11px] text-[#6B697D]">
-                Sheffield, United Kingdom &bull; Lahore, Pakistan
+                United Kingdom &bull; Pakistan
               </p>
               <p className="text-[11px] text-[#A4A2B2]">
                 Contact: <a href="mailto:contact@nexverse.co.uk" className="text-[#18CB96] hover:underline">contact@nexverse.co.uk</a>
@@ -148,7 +148,7 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex items-center gap-4">
             <span className="text-[#18CB96]">Status: 24/7 ACTIVE</span>
-            <span>Sheffield &bull; Lahore</span>
+            {/* <span>Sheffield &bull; Lahore</span> */}
           </div>
         </div>
       </div>

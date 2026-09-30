@@ -51,7 +51,7 @@ export const companyTeam: TeamMember[] = [
   },
   {
     name: "Abdullah",
-    role: "Senior Full-Stack & Mobile Developer",
+    role: "Junior Full-Stack & Mobile Developer",
     location: "Lahore, Pakistan",
     bio: "Full-stack developer building robust mobile applications, backend microservices, and reactive web applications across React, Flutter, Node.js, and Laravel.",
     avatar: "/assets/team/abdullah.png",
