@@ -29,7 +29,7 @@ const stack = [
 
 function TechOrbit() {
   return (
-    <div className="relative mx-auto flex h-[360px] w-full max-w-[360px] items-center justify-center sm:h-[420px] sm:max-w-[420px] md:h-[500px] md:max-w-[500px]">
+    <div className="relative mx-auto flex h-[400px] w-full max-w-[400px] items-center justify-center sm:h-[460px] sm:max-w-[460px] md:h-[540px] md:max-w-[540px]" style={{ overflow: "visible" }}>
       {/* Central static anchor with logo green ambient glow */}
       <div className="z-10 flex h-28 w-28 flex-col items-center justify-center rounded-full border border-[var(--accent)]/40 bg-[var(--bg)]/90 text-center backdrop-blur-md shadow-[0_0_40px_rgba(24,203,150,0.2)] sm:h-32 sm:w-32 md:h-40 md:w-40">
         <span className="font-[var(--font-display)] text-sm font-bold tracking-wider text-[var(--accent)] uppercase sm:text-base md:text-lg">
@@ -48,27 +48,39 @@ function TechOrbit() {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
-        className="absolute h-[220px] w-[220px] sm:h-[260px] sm:w-[260px] md:h-[320px] md:w-[320px]"
+        className="pointer-events-none absolute h-[220px] w-[220px] sm:h-[260px] sm:w-[260px] md:h-[320px] md:w-[320px]"
+        style={{ overflow: "visible" }}
       >
         {stack.slice(0, 5).map(({ name, Icon, color }, i) => {
-          const angle = (i / 5) * (2 * Math.PI);
+          const innerPositions = [
+            { left: "100%", top: "50%" },
+            { left: "65.45%", top: "97.55%" },
+            { left: "9.55%", top: "79.39%" },
+            { left: "9.55%", top: "20.61%" },
+            { left: "65.45%", top: "2.45%" },
+          ];
+          const pos = innerPositions[i];
           return (
             <div
               key={name}
-              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
-              style={{
-                left: `calc(50% + ${Math.cos(angle) * 50}%)`,
-                top: `calc(50% + ${Math.sin(angle) * 50}%)`,
-              }}
+              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-auto"
+              style={{ left: pos.left, top: pos.top, zIndex: 20 }}
             >
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
-                className="group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-[var(--line)] bg-[#0f1523]/90 text-white shadow-lg transition-transform hover:scale-125"
+                className="group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-[var(--line)] bg-[#0f1523]/90 text-white shadow-lg transition-transform hover:scale-125 cursor-pointer hover:border-[var(--accent)]"
+                style={{ overflow: "visible" }}
               >
-                <Icon className="h-4 w-4 sm:h-5 sm:w-5 transition-colors" style={{ color }} />
-                <span className="pointer-events-none absolute -bottom-7 whitespace-nowrap rounded bg-[#182032] px-2 py-0.5 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 z-20">
+                <Icon className="h-4 w-4 sm:h-5 sm:w-5 transition-colors shrink-0" style={{ color }} />
+                {/* Tooltip above the icon — avoids clipping by any ancestor */}
+                <span
+                  className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-9 whitespace-nowrap rounded-md bg-[#0A1220] px-2.5 py-1 text-[11px] text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100 shadow-xl border border-[var(--accent)]/30 font-mono font-medium"
+                  style={{ zIndex: 9999 }}
+                >
                   {name}
+                  {/* tiny caret */}
+                  <span className="absolute left-1/2 -translate-x-1/2 -bottom-[5px] w-2 h-2 bg-[#0A1220] border-b border-r border-[var(--accent)]/30 rotate-45" />
                 </span>
               </motion.div>
             </div>
@@ -80,27 +92,38 @@ function TechOrbit() {
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 52, repeat: Infinity, ease: "linear" }}
-        className="absolute h-[320px] w-[320px] sm:h-[380px] sm:w-[380px] md:h-[460px] md:w-[460px]"
+        className="pointer-events-none absolute h-[320px] w-[320px] sm:h-[380px] sm:w-[380px] md:h-[460px] md:w-[460px]"
+        style={{ overflow: "visible" }}
       >
         {stack.slice(5).map(({ name, Icon, color }, i) => {
-          const angle = (i / 4) * (2 * Math.PI);
+          const outerPositions = [
+            { left: "100%", top: "50%" },
+            { left: "50%", top: "100%" },
+            { left: "0%", top: "50%" },
+            { left: "50%", top: "0%" },
+          ];
+          const pos = outerPositions[i];
           return (
             <div
               key={name}
-              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
-              style={{
-                left: `calc(50% + ${Math.cos(angle) * 50}%)`,
-                top: `calc(50% + ${Math.sin(angle) * 50}%)`,
-              }}
+              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-auto"
+              style={{ left: pos.left, top: pos.top, zIndex: 20 }}
             >
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 52, repeat: Infinity, ease: "linear" }}
-                className="group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-[var(--line)] bg-[#0f1523]/90 text-white shadow-lg transition-transform hover:scale-125"
+                className="group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-[var(--line)] bg-[#0f1523]/90 text-white shadow-lg transition-transform hover:scale-125 cursor-pointer hover:border-[var(--accent)]"
+                style={{ overflow: "visible" }}
               >
-                <Icon className="h-4 w-4 sm:h-5 sm:w-5 transition-colors" style={{ color }} />
-                <span className="pointer-events-none absolute -bottom-7 whitespace-nowrap rounded bg-[#182032] px-2 py-0.5 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 z-20">
+                <Icon className="h-4 w-4 sm:h-5 sm:w-5 transition-colors shrink-0" style={{ color }} />
+                {/* Tooltip above the icon — avoids clipping by any ancestor */}
+                <span
+                  className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-9 whitespace-nowrap rounded-md bg-[#0A1220] px-2.5 py-1 text-[11px] text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100 shadow-xl border border-[var(--accent)]/30 font-mono font-medium"
+                  style={{ zIndex: 9999 }}
+                >
                   {name}
+                  {/* tiny caret */}
+                  <span className="absolute left-1/2 -translate-x-1/2 -bottom-[5px] w-2 h-2 bg-[#0A1220] border-b border-r border-[var(--accent)]/30 rotate-45" />
                 </span>
               </motion.div>
             </div>

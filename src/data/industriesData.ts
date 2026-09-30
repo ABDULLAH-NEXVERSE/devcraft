@@ -26,7 +26,7 @@ export const industriesData: IndustryDetail[] = [
     devcraftApproach:
       "We design and build bespoke logistics platforms from the ground up: low-latency GPS driver telemetry, multi-vendor marketplace dispatch engines, and international commodity indenting portals.",
     icon: "Truck",
-    heroImage: "/assets/nexeat.png",
+    heroImage: "/assets/logistics.png",
     keySolutions: [
       "Custom Driver & Rider Mobile Applications (iOS & Android)",
       "Real-Time Telemetry & Geofenced Dispatch Clustering",
@@ -66,7 +66,7 @@ export const industriesData: IndustryDetail[] = [
     devcraftApproach:
       "We build secure, auditable enterprise portals with automated compliance verification, regulatory document verification, technical industrial sourcing catalogs, and rule-based approval pipelines.",
     icon: "ShieldCheck",
-    heroImage: "/assets/duralean.jpg",
+    heroImage: "/assets/procurement.png",
     keySolutions: [
       "BS 7858 & SIA 5-Year Background Vetting Engines",
       "Multi-Sector Technical Industrial Sourcing Catalogs",
@@ -112,7 +112,7 @@ export const industriesData: IndustryDetail[] = [
     devcraftApproach:
       "We engineer sub-second headless commerce architectures, bespoke marketplace engines, and luxury media presentation platforms with edge CDN delivery and one-click checkout.",
     icon: "ShoppingBag",
-    heroImage: "/assets/jay-samuel-studio.jpg",
+    heroImage: "/assets/e-commerceAndRetail.png",
     keySolutions: [
       "Sub-Second Headless Next.js Ordering Architectures",
       "Multi-Vendor Marketplace Infrastructure with Automated Payouts",
@@ -146,7 +146,7 @@ export const industriesData: IndustryDetail[] = [
     devcraftApproach:
       "We engineer hardened financial portals, automated subscription and metering engines, real-time enterprise management terminals, and PCI-DSS-ready payment gateways with cryptographic audit logs.",
     icon: "CreditCard",
-    heroImage: "/assets/tal-encia.png",
+    heroImage: "/assets/Fintech.png",
     keySolutions: [
       "Automated Recurring Subscription & Usage-Based Invoicing Engines",
       "Enterprise Digital Ecosystems & Advisory Dashboards",
@@ -180,7 +180,7 @@ export const industriesData: IndustryDetail[] = [
     devcraftApproach:
       "We design HIPAA and GDPR-compliant clinical management portals, intelligent shift matching engines, and encrypted biometric health applications that protect patient data while saving thousands of administrative hours.",
     icon: "Activity",
-    heroImage: "/assets/Prorota.png",
+    heroImage: "/assets/healthcare.png",
     keySolutions: [
       "Automated Clinical Shift Scheduling & Ward Staff Allocation",
       "SIA & BS 7858 Compliance Vetting & DBS Document Verification",

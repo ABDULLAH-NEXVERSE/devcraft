@@ -50,8 +50,8 @@ export const productsData: ProductDetail[] = [
       "CRM",
       "GPS Time & Attendance",
     ],
-    mockupImage: "/assets/Prorota.png",
-    dashboardImage: "/assets/Prorota.png",
+    mockupImage: "/assets/prorota1.png",
+    dashboardImage: "/assets/prorota2.png",
     features: [
       {
         title: "Intelligent Shift Scheduling",
@@ -154,8 +154,8 @@ export const productsData: ProductDetail[] = [
       "Turn-by-Turn GPS",
       "Offline Sync",
     ],
-    mockupImage: "/assets/nexrider.jpg",
-    dashboardImage: "/assets/nexrider.jpg",
+    mockupImage: "/assets/nexrider.webp",
+    dashboardImage: "/assets/nexrider2.webp",
     features: [
       {
         title: "Active Delivery Telemetry",
@@ -182,6 +182,108 @@ export const productsData: ProductDetail[] = [
       { value: "<15ms", label: "GPS Telemetry Ping" },
       { value: "99.8%", label: "Delivery Accuracy" },
       { value: "24/7", label: "Rider Ops Support" },
+    ],
+  },
+  {
+    id: "odlings",
+    slug: "odlings",
+    name: "Odlings Portal",
+    tagline: "Memorial Wholesale Ordering & Trade Operations",
+    category: "Wholesale & Supply Chain Portal",
+    badge: "Enterprise Trade Platform",
+    status: "Live & Operating",
+    description:
+      "A comprehensive B2B trade portal, digital product catalogue, and order tracking platform engineered for UK memorial wholesaler Odlings.",
+    longDescription:
+      "Engineered for high-volume B2B operations, Odlings Portal streamlines custom memorial masonry ordering, sandblasting specifications, order dispatch status, and invoicing reconciliation for stonemasons and cemeteries across the UK.",
+    liveUrl: "https://portal.odlings.co.uk/",
+    ctaText: "Visit Odlings Portal",
+    tags: [
+      "B2B Portal",
+      "Trade Orders",
+      "Wholesale Operations",
+      "Order Tracking",
+      "Invoicing",
+    ],
+    mockupImage: "/assets/odlings.png",
+    dashboardImage: "/assets/odlings.png",
+    features: [
+      {
+        title: "Digital Trade Catalogue",
+        description:
+          "Extensive indexing of memorial stones, custom finishes, and accessories with instant specification lookups.",
+      },
+      {
+        title: "Online Order Placement",
+        description:
+          "Fast, structured trade order submission with bespoke lettering, sandblasting, and sizing options.",
+      },
+      {
+        title: "Live Order Telemetry",
+        description:
+          "Real-time tracking of production stages from stone cutting to delivery dispatch.",
+      },
+      {
+        title: "Invoice & Statement Sync",
+        description:
+          "Self-service account statements, downloadable VAT invoices, and automated accounting sync.",
+      },
+    ],
+    metrics: [
+      { value: "100%", label: "Digital Trade Order Flow" },
+      { value: "<2min", label: "Average Order Placement" },
+      { value: "24/7", label: "Trade Portal Availability" },
+    ],
+  },
+  {
+    id: "glasgow-training-academy",
+    slug: "glasgow-training-academy",
+    name: "GTA Academy CMS",
+    tagline: "Course Management System & Accreditations Training Portal",
+    category: "Training & Compliance Platform",
+    badge: "Accredited Training CMS",
+    status: "Live & Operating",
+    description:
+      "Centralised educational content management, student compliance tracking, and accreditation management portal for Glasgow Training Academy.",
+    longDescription:
+      "Engineered to administer accredited professional courses, Glasgow Training Academy CMS delivers student registration, instructor timetables, assessment tracking, and automated certification issuance in a single high-availability system.",
+    liveUrl: "https://cms.glasgowtrainingacademy.ac/login",
+    ctaText: "Launch GTA CMS",
+    tags: [
+      "Academy CMS",
+      "Student Management",
+      "Course Scheduling",
+      "Compliance Vetting",
+      "Certifications",
+    ],
+    mockupImage: "/assets/gta1.png",
+    dashboardImage: "/assets/gta1.png",
+    features: [
+      {
+        title: "Course & Timetable Administration",
+        description:
+          "Flexible management of course batches, venues, schedules, and instructor assignments.",
+      },
+      {
+        title: "Student Tracking & Attendance",
+        description:
+          "Real-time recording of attendance, qualification prerequisites, and exam assessments.",
+      },
+      {
+        title: "Automated Accreditation Verification",
+        description:
+          "Verification of regulatory compliance standards and instant generation of tamper-evident certificates.",
+      },
+      {
+        title: "Role-Based Staff Access",
+        description:
+          "Granular permissions for administrators, instructors, and auditors with complete activity auditing.",
+      },
+    ],
+    metrics: [
+      { value: "99.8%", label: "Administrative Accuracy" },
+      { value: "Instant", label: "Certificate Verification" },
+      { value: "-70%", label: "Admin Workload" },
     ],
   },
 ];

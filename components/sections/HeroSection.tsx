@@ -65,7 +65,7 @@ export const HeroSection: React.FC = () => {
           className="absolute right-6 top-0 h-full w-[82%] overflow-hidden rounded-[28px] border border-[var(--line)] md:w-[74%]"
         >
           <BrandImage
-            src="/assets/portfolio/prorota-solution.webp"
+            src="/assets/prorota1.png"
             alt="DevCraft product interface"
             className="h-full w-full"
             tint="green"

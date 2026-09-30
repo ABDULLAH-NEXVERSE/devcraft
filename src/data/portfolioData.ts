@@ -60,10 +60,10 @@ export const portfolioData: CaseStudyDetail[] = [
     serviceSlug: "custom-software-development",
     industrySlug: "procurement-compliance",
     category: "Workflow Automation",
-    heroImage: "/assets/Prorota.png",
-    mockupImage: "/assets/Prorota.png",
-    winBanner: "/assets/Prorota.png",
-    caseFeatureImage: "/assets/Prorota.png",
+    heroImage: "/assets/prorota1.png",
+    mockupImage: "/assets/prorota2.png",
+    winBanner: "/assets/prorota1.png",
+    caseFeatureImage: "/assets/prorota2.png",
     summary:
       "All-in-one platform suite for regulated service businesses: intelligent staff scheduling, biometric GPS attendance, BS 7858 background vetting, SIA licence monitoring, and AI workforce assistant.",
     challenge:
@@ -101,7 +101,7 @@ export const portfolioData: CaseStudyDetail[] = [
     heroImage: "/assets/nexeat.png",
     mockupImage: "/assets/nexeat.png",
     winBanner: "/assets/nexeat.png",
-    caseFeatureImage: "/assets/nexrider.jpg",
+    caseFeatureImage: "/assets/nexrider.webp",
     summary:
       "Consumer food delivery marketplace connecting diners with local restaurants, featuring live GPS driver dispatch, bilingual ordering (French/Arabic), and companion NexRider fleet ops app.",
     challenge:
@@ -391,6 +391,82 @@ export const portfolioData: CaseStudyDetail[] = [
         "DevCraft structured our diverse capabilities into a cohesive platform that immediately resonates with corporate clients.",
       author: "Managing Partner",
       role: "Tal-encia Advisory",
+    },
+  },
+  {
+    slug: "odlings",
+    client: "Odlings MCR",
+    clientLogo: "/assets/odlinglogo.png",
+    title: "Memorial Wholesale Customer Ordering & Trade Operations Portal",
+    liveUrl: "https://portal.odlings.co.uk/",
+    serviceSlug: "custom-software-development",
+    industrySlug: "procurement-compliance",
+    category: "Enterprise Platform",
+    heroImage: "/assets/odlings.png",
+    mockupImage: "/assets/odlings.png",
+    winBanner: "/assets/odlings.png",
+    caseFeatureImage: "/assets/odlings.png",
+    summary:
+      "Comprehensive B2B trade portal, digital product catalogue, and order tracking platform engineered for UK memorial wholesaler Odlings.",
+    challenge:
+      "Coordinating thousands of custom memorial masonry specifications, bespoke sandblasting customisations, and nationwide cemetery delivery timelines through manual spreadsheets, phone, and email channels.",
+    solution:
+      "DevCraft engineered a secure, cloud-native B2B trade portal featuring real-time catalogue indexing, instant order placement, production status tracking, and automated trade invoice reconciliation.",
+    results: [
+      { metric: "100%", label: "Digital Trade Order Flow" },
+      { metric: "<2min", label: "Average Order Placement" },
+      { metric: "24/7", label: "Trade Portal Availability" },
+    ],
+    deliverables: [
+      "Custom B2B Customer Portal & Authentication Architecture",
+      "Memorial Catalogue Indexing & Specification Engine",
+      "Automated Order Invoicing & Accounting Sync",
+      "Live Order Status & Production Tracking Dashboard",
+    ],
+    techStack: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    testimonial: {
+      quote:
+        "The customer portal streamlined our trade order flow and provided our clients with 24/7 visibility into their orders.",
+      author: "Operations Director",
+      role: "Odlings MCR",
+    },
+  },
+  {
+    slug: "glasgow-training-academy",
+    client: "Glasgow Training Academy",
+    clientLogo: "/assets/gtaLogo.png",
+    title: "Enterprise Training Academy CMS, Course & Compliance Management Portal",
+    liveUrl: "https://cms.glasgowtrainingacademy.ac/login",
+    serviceSlug: "custom-software-development",
+    industrySlug: "procurement-compliance",
+    category: "Workflow Automation",
+    heroImage: "/assets/gta1.png",
+    mockupImage: "/assets/gta1.png",
+    winBanner: "/assets/gta1.png",
+    caseFeatureImage: "/assets/gta1.png",
+    summary:
+      "Centralised course content management, student compliance tracking, and accreditation management portal for Glasgow Training Academy.",
+    challenge:
+      "Managing accredited qualifications, student attendance logs, instructor schedules, and compliance certificates across multiple concurrent courses with disjointed manual processes.",
+    solution:
+      "DevCraft developed an intuitive, high-availability CMS portal automating course registrations, student progress tracking, assessment record-keeping, and accredited certification issuance.",
+    results: [
+      { metric: "99.8%", label: "Administrative Accuracy" },
+      { metric: "Instant", label: "Certificate Verification" },
+      { metric: "-70%", label: "Admin Workload" },
+    ],
+    deliverables: [
+      "Centralised Academy CMS & Course Administration Portal",
+      "Student Enrolment, Attendance & Progress Tracker",
+      "Automated Compliance & Accredited Certification Engine",
+      "Role-Based Instructor & Staff Access Management",
+    ],
+    techStack: ["Next.js", "TypeScript", "React", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    testimonial: {
+      quote:
+        "DevCraft provided us with an intuitive CMS that transformed our academy's daily administration and student compliance workflows.",
+      author: "Academy Lead",
+      role: "Glasgow Training Academy",
     },
   },
 ];

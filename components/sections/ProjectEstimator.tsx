@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Calculator, Check, ArrowRight, Shield } from "lucide-react";
 
 interface ServiceOption {
@@ -152,13 +153,13 @@ export const ProjectEstimator: React.FC = () => {
               </div>
             </div>
 
-            <a
-              href="#contact"
+            <Link
+              href="/contact?type=quote"
               className="mt-6 w-full py-3 rounded-full text-xs font-semibold bg-[#18CB96] text-[#0B0B10] hover:bg-[#14AF81] transition-all flex items-center justify-center gap-1.5 shadow-[0_0_20px_rgba(24,203,150,0.3)]"
             >
               <span>Lock In Sprint Scope</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

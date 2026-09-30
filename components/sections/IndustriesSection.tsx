@@ -9,31 +9,31 @@ const industries = [
     name: "Logistics & Delivery",
     copy: "Rider and driver apps, real-time fleet telemetry, route optimization, and delivery marketplaces.",
     icon: Truck,
-    img: "/assets/hero/industry-showcase-1.jpg",
+    img: "/assets/logistics.png",
   },
   {
     name: "Procurement & Compliance",
     copy: "Vetting platforms, BS7858/SIA compliance automation, audit trails, and supplier management workflows.",
     icon: ShieldCheck,
-    img: "/assets/portfolio/prorota-commercial-win.jpg",
+    img: "/assets/procurement.png",
   },
   {
     name: "E-commerce & Retail",
     copy: "High-throughput storefronts, dynamic inventory synchronization, checkout optimization, and multi-vendor hubs.",
     icon: Store,
-    img: "/assets/portfolio/coconut-cosmetics-branding.png",
+    img: "/assets/e-commerceAndRetail.png",
   },
   {
     name: "Fintech",
     copy: "Secure, regulatory-compliant platforms for cross-border settlements, payment rails, and ledger analytics.",
     icon: Landmark,
-    img: "/assets/portfolio/atelyra-fintech.webp",
+    img: "/assets/Fintech.png",
   },
   {
     name: "Healthcare",
     copy: "Secure clinician scheduling, HIPAA/GDPR-compliant health record handling, and patient engagement portals.",
     icon: HeartPulse,
-    img: "/assets/portfolio/ab3-featured-hero.jpg",
+    img: "/assets/healthcare.png",
   },
 ];
 

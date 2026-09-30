@@ -12,7 +12,7 @@ const products = [
     tag: "Workforce Management, HR Vetting & CRM",
     copy: "An all-in-one platform for service businesses — intelligent scheduling, GPS attendance, SIA/BS7858 compliance tracking, payroll integration and an AI workforce assistant.",
     tags: ["Scheduling", "Compliance", "AI Assistant", "Mobile Apps"],
-    img: "/assets/Prorota.png",
+    img: "/assets/prorota1.png",
   },
   {
     name: "NexEats",
@@ -26,7 +26,7 @@ const products = [
     tag: "Delivery Rider App",
     copy: "The companion rider app for NexEats — active delivery management, real-time earnings and vehicle details, built for on-the-go use.",
     tags: ["Rider Ops", "Earnings Tracking", "iOS"],
-    img: "/assets/nexrider.jpg",
+    img: "/assets/nexrider.webp",
   },
 ];
 

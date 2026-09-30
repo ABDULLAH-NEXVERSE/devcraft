@@ -47,9 +47,9 @@ export const servicesData: ServiceDetail[] = [
       "Slow load times, inflexible CMS templates, high bounce rates, and broken responsive layouts that prevent businesses from converting qualified organic traffic.",
     icon: "Globe",
     badge: "Core Service",
-    heroImage: "/assets/portfolio/enterprise-architecture-solution.jpg",
-    diagramImage: "/assets/services/dev-programming-terminal.png",
-    mockupImage: "/assets/portfolio/case-study-deepdive-banner.jpg",
+    heroImage: "/assets/webdevelopment.png",
+    diagramImage: "/assets/webdevelopment1.png",
+    mockupImage: "/assets/webdevelopment.png",
     overview:
       "At DevCraft, our web development service bridges marketing impact with rigorous engineering. Whether you need a high-converting marketing site on WordPress, an edge-rendered Next.js web platform, or a secure multi-tenant portal on Laravel, we build with clean architecture, strict accessibility, and sub-second Core Web Vitals from day one.",
     deliverables: [
@@ -123,9 +123,9 @@ export const servicesData: ServiceDetail[] = [
       "High development costs from maintaining disjointed iOS and Android codebases, sluggish performance, offline data loss, and poor App Store approval rates.",
     icon: "Smartphone",
     badge: "iOS & Android",
-    heroImage: "/assets/portfolio/alif-android-app.webp",
-    diagramImage: "/assets/portfolio/alif-mobile-app.webp",
-    mockupImage: "/assets/portfolio/alif-ios-app.webp",
+    heroImage: "/assets/mobiledevelopment.png",
+    diagramImage: "/assets/mobiledevlopment1.png",
+    mockupImage: "/assets/mobiledevelopment.png",
     overview:
       "We design, build, and publish consumer and enterprise mobile applications that users love. From real-time food delivery dispatch in NexRider to clinical athlete biometric passports, our mobile squads engineer resilient apps with offline data synchronization, hardware-accelerated rendering, and bi-directional API backends.",
     deliverables: [
@@ -199,9 +199,9 @@ export const servicesData: ServiceDetail[] = [
       "Rigid off-the-shelf software with steep licensing fees, disconnected spreadsheets, manual copy-pasting across tools, and lack of enterprise customization.",
     icon: "Cpu",
     badge: "Enterprise Grade",
-    heroImage: "/assets/services/internal-systems-hero.jpg",
-    diagramImage: "/assets/services/dev-programming-terminal.png",
-    mockupImage: "/assets/portfolio/prorota-commercial-win.jpg",
+    heroImage: "/assets/procurement.png",
+    diagramImage: "/assets/procurement1.png",
+    mockupImage: "/assets/procurement.png",
     overview:
       "When off-the-shelf SaaS limits your growth, DevCraft engineers custom software that molds directly to your operational processes. We architect multi-tenant SaaS platforms, internal staff portals, and high-concurrency database systems that eliminate manual overhead and give leadership real-time operational visibility.",
     deliverables: [
@@ -275,9 +275,9 @@ export const servicesData: ServiceDetail[] = [
       "Clunky checkout flows, high cart abandonment, slow mobile loading, and inflexible product configurations that restrict sales growth.",
     icon: "ShoppingBag",
     badge: "High Conversion",
-    heroImage: "/assets/portfolio/coconut-cosmetics-branding.png",
-    diagramImage: "/assets/portfolio/lead-capture-cta-preview.webp",
-    mockupImage: "/assets/portfolio/case-example-mockup.jpg",
+    heroImage: "/assets/e-commerce.png",
+    diagramImage: "/assets/e-commerce1.png",
+    mockupImage: "/assets/e-commerce.png",
     overview:
       "DevCraft builds e-commerce platforms engineered for revenue. From multi-vendor consumer marketplaces like NexEats to custom headless Shopify and WooCommerce experiences, we optimize every touchpoint from product discovery and basket additions to one-click payment processing.",
     deliverables: [
@@ -351,9 +351,9 @@ export const servicesData: ServiceDetail[] = [
       "Confusing user navigation, inconsistent visual branding across products, slow user onboarding, and designs that look good in mockups but fail in real code.",
     icon: "Layout",
     badge: "Design Systems",
-    heroImage: "/assets/portfolio/creative-studio-showcase-1.webp",
-    diagramImage: "/assets/portfolio/creative-studio-showcase-2.webp",
-    mockupImage: "/assets/portfolio/creative-studio-showcase-3.webp",
+    heroImage: "/assets/UIandUX.png",
+    diagramImage: "/assets/UIandUX1.png",
+    mockupImage: "/assets/UIandUX.png",
     overview:
       "Great software starts with intentional design. At DevCraft, our UI/UX team creates interfaces that feel effortless to use. We combine deep user journey mapping with comprehensive design systems, component libraries, and interactive Figma prototypes, ensuring an exact translation from visual concept to production code.",
     deliverables: [
@@ -409,7 +409,7 @@ export const servicesData: ServiceDetail[] = [
     relatedProject: {
       name: "Flash Creative Publishing Studio",
       description: "Interactive media showcase platform built with sub-second immersion and visual excellence.",
-      link: "/work/flash-creative-studio",
+      link: "/work/jay-samuel-studio",
     },
     metrics: [
       { value: "3.2x", label: "User Task Speedup" },
@@ -427,9 +427,9 @@ export const servicesData: ServiceDetail[] = [
       "Manual data processing bottlenecks, lack of predictive intelligence, repetitive customer inquiries, and generic off-the-shelf AI tools that hallucinate.",
     icon: "Sparkles",
     badge: "Applied AI",
-    heroImage: "/assets/services/workflow-lead-capture.png",
-    diagramImage: "/assets/services/workflow-automation-engine.png",
-    mockupImage: "/assets/portfolio/dailyworld-ai-news.webp",
+    heroImage: "/assets/AIandML.png",
+    diagramImage: "/assets/AiandML1.png",
+    mockupImage: "/assets/AIandML.png",
     overview:
       "We build practical, production-grade AI that drives measurable business outcomes. Instead of superficial AI wrappers, we embed Python models, automated recommendation engines, predictive scheduling, and intelligent conversational assistants with strict deterministic guardrails directly into your core product.",
     deliverables: [
@@ -485,7 +485,7 @@ export const servicesData: ServiceDetail[] = [
     relatedProject: {
       name: "DailyWorld Autonomous AI News Engine",
       description: "Multi-agent semantic fact-checking and synthesis pipeline processing thousands of articles daily.",
-      link: "/work/dailyworld-ai-news",
+      link: "/work/tal-encia",
     },
     metrics: [
       { value: "450ms", label: "Inference Velocity" },
@@ -503,9 +503,9 @@ export const servicesData: ServiceDetail[] = [
       "Unpatched software vulnerabilities, unexpected server downtime, slow emergency bug fixes, and agencies that disappear immediately after product launch.",
     icon: "ShieldCheck",
     badge: "24/7 Coverage",
-    heroImage: "/assets/services/internal-systems-hero.jpg",
-    diagramImage: "/assets/services/dev-programming-terminal.png",
-    mockupImage: "/assets/portfolio/case-study-deepdive-banner.jpg",
+    heroImage: "/assets/maintenanceAndSupport.png",
+    diagramImage: "/assets/maintenanceAndSupport1.png",
+    mockupImage: "/assets/maintenanceAndSupport.png",
     overview:
       "Software requires continuous care to stay fast, secure, and competitive. DevCraft's two-team delivery model in Sheffield, UK and Lahore, Pakistan provides round-the-clock follow-the-sun maintenance. We actively monitor your servers, apply security patches, manage cPanel and cloud hosting, and resolve issues before they impact your business.",
     deliverables: [

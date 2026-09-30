@@ -38,7 +38,7 @@ export const companyTeam: TeamMember[] = [
     role: "Founder of Nexverse (Developer & Designer)",
     location: "Sheffield, United Kingdom",
     bio: "Visionary design and engineering leader heading the UK delivery arm of DevCraft / Nexverse. Specializing in high-performance digital product architectures, brand-aligned interface design, and client commercial delivery.",
-    avatar: "/assets/team/usman-devops-lead.jpg",
+    avatar: "/assets/team/usman-devops-lead.png",
     specialization: "Next.js Platforms, Product & UI/UX Design, Enterprise Systems Architecture",
   },
   {
@@ -46,7 +46,7 @@ export const companyTeam: TeamMember[] = [
     role: "Chief Executive Officer (CEO)",
     location: "Lahore, Pakistan",
     bio: "Directing technical operations and full-stack delivery across the Pakistan engineering center. Ensuring precision execution, disciplined code standards, and seamless cross-timezone client coordination.",
-    avatar: "/assets/team/rean-founder.png",
+    avatar: "/assets/team/haider.png",
     specialization: "Engineering Leadership, Technical Operations, Full-Stack Delivery Governance",
   },
   {
@@ -54,7 +54,7 @@ export const companyTeam: TeamMember[] = [
     role: "Senior Full-Stack & Mobile Developer",
     location: "Lahore, Pakistan",
     bio: "Full-stack developer building robust mobile applications, backend microservices, and reactive web applications across React, Flutter, Node.js, and Laravel.",
-    avatar: "/assets/team/team-lead-eng.png",
+    avatar: "/assets/team/abdullah.png",
     specialization: "Mobile Apps (Flutter/React Native), Node.js Microservices, Custom Web Engineering",
   },
 ];
