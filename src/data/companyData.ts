@@ -34,8 +34,8 @@ export const yearsInOperation = Math.max(5, new Date().getFullYear() - FOUNDING_
 
 export const companyTeam: TeamMember[] = [
   {
-    name: "Sir Usman",
-    role: "Founder of Nexverse (Developer & Designer)",
+    name: "Usman",
+    role: "Founder of Nexverse (Developer & Designer) & CEO of DevCraft",
     location: "Sheffield, United Kingdom",
     bio: "Visionary design and engineering leader heading the UK delivery arm of DevCraft / Nexverse. Specializing in high-performance digital product architectures, brand-aligned interface design, and client commercial delivery.",
     avatar: "/assets/team/usman-devops-lead.png",
@@ -43,7 +43,7 @@ export const companyTeam: TeamMember[] = [
   },
   {
     name: "Haider",
-    role: "Chief Executive Officer (CEO)",
+    role: "Co-Founder of DevCraft ",
     location: "Lahore, Pakistan",
     bio: "Directing technical operations and full-stack delivery across the Pakistan engineering center. Ensuring precision execution, disciplined code standards, and seamless cross-timezone client coordination.",
     avatar: "/assets/team/haider.png",
@@ -51,7 +51,7 @@ export const companyTeam: TeamMember[] = [
   },
   {
     name: "Abdullah",
-    role: "Junior Full-Stack & Mobile Developer",
+    role: "Full-Stack & Mobile Developer",
     location: "Lahore, Pakistan",
     bio: "Full-stack developer building robust mobile applications, backend microservices, and reactive web applications across React, Flutter, Node.js, and Laravel.",
     avatar: "/assets/team/abdullah.png",
@@ -90,12 +90,12 @@ export const companyData = {
       "By coordinating our engineering center in Lahore, Pakistan with our product and design studio in Sheffield, UK, DevCraft operates without the typical overnight downtime. When design and scoping wind down in the UK, engineering and testing continue in Pakistan—enabling round-the-clock progress and instantaneous support response.",
     ukOffice: {
       location: "Sheffield, United Kingdom",
-      lead: "Sir Usman (Founder of Nexverse, Developer & Designer)",
+      lead: "Usman (Founder of Nexverse, Developer & Designer)",
       focus: "Client Strategy, Product UI/UX Design & Architectural Governance",
     },
     pakistanOffice: {
       location: "Lahore, Pakistan",
-      lead: "Haider (CEO) & Abdullah (Developer)",
+      lead: "Haider (Co-Founder) & Abdullah (Developer)",
       focus: "Full-Stack Development, Mobile Engineering & 24/7 Support Operations",
     },
   },

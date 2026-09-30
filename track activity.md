@@ -9,8 +9,8 @@
 ### Real Company Background & Structure
 - **Entity:** DevCraft (part of Nexverse). 5 years in operation from Lahore, Pakistan (founding date ~2021).
 - **Two Delivery Teams:**
-  1. **Sheffield, UK:** Sir Usman, Founder of Nexverse (Developer & Designer).
-  2. **Lahore, Pakistan:** Haider (CEO), Abdullah (Developer).
+  1. **Sheffield, UK:** Usman, Founder of Nexverse (Developer & Designer).
+  2. **Lahore, Pakistan:** Haider (Co-Founder), Abdullah (Developer).
 - **Core Model:** Follow-the-sun 24/7 delivery and support across UK and Pakistan time zones.
 - **Approved Tagline:** `"Software, Crafted With Intent."`
 - **Secondary Tagline:** `"Built by Two Teams, Delivered Around the Clock."`
