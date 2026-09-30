@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   motion,
@@ -295,6 +295,29 @@ function OfficeLocations() {
 /* ------------------------------------------------------------------ */
 type FormMode = "quote" | "consultation";
 
+/** Inner syncer — must live inside <Suspense> because it calls useSearchParams */
+function SearchParamsSyncer({
+  setMode,
+  sectionRef,
+}: {
+  setMode: (m: FormMode) => void;
+  sectionRef: React.RefObject<HTMLElement | null>;
+}) {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const type = searchParams.get("type");
+    if (type === "consultation" || type === "quote") {
+      setMode(type as FormMode);
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+    }
+  }, [searchParams, setMode, sectionRef]);
+
+  return null;
+}
+
 function ContactFormSection() {
   const [mode, setMode] = useState<FormMode>("quote");
   const [submitted, setSubmitted] = useState(false);
@@ -306,23 +329,6 @@ function ContactFormSection() {
     message: "",
   });
   const sectionRef = useRef<HTMLElement>(null);
-  const searchParams = useSearchParams();
-
-  // Auto-switch tab and scroll based on ?type= URL param
-  useEffect(() => {
-    const type = searchParams.get("type");
-    if (type === "consultation") {
-      setMode("consultation");
-      setTimeout(() => {
-        sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 300);
-    } else if (type === "quote") {
-      setMode("quote");
-      setTimeout(() => {
-        sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 300);
-    }
-  }, [searchParams]);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -335,6 +341,10 @@ function ContactFormSection() {
       id="consultation"
       className="py-28 px-6 max-w-7xl mx-auto border-t border-white/10"
     >
+      {/* Suspense boundary required by Next.js for useSearchParams */}
+      <Suspense fallback={null}>
+        <SearchParamsSyncer setMode={setMode} sectionRef={sectionRef} />
+      </Suspense>
       <div className="mb-16">
         <span className="text-xs font-mono uppercase tracking-widest text-[#18cb96] font-bold block mb-3">
           02 // Get In Touch

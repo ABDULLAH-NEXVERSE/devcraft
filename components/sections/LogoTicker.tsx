@@ -14,9 +14,15 @@ const partners = [
   { name: "Limitless", logo: "/assets/clients/limitless.svg" },
   { name: "Ahlmark Lines", logo: "/assets/clients/ahlmark.svg" },
   { name: "Airco", logo: "/assets/clients/airco.svg" },
+  { name: "AB3 Medical", logo: "/assets/clients/ab3-medical.svg" },
+  { name: "Sirius Security", logo: "/assets/clients/sirius-security.svg" },
+  { name: "Virtually Golf", logo: "/assets/clients/virtually-golf.svg" },
+  { name: "Lambson", logo: "/assets/clients/lambson.svg" },
+  { name: "YMCA", logo: "/assets/clients/ymca.svg" },
 ];
 
 export const LogoTicker: React.FC = () => {
+  // Double the list so the seamless loop works
   const displayPartners = [...partners, ...partners];
 
   return (
@@ -25,23 +31,21 @@ export const LogoTicker: React.FC = () => {
         Organisations we&apos;ve worked with
       </p>
       <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <div className="flex w-max animate-marquee items-center gap-14 whitespace-nowrap">
+        <div className="flex w-max animate-marquee items-center gap-16 whitespace-nowrap">
           {displayPartners.map((p, i) => (
             <div
               key={`${p.name}-${i}`}
-              className="flex items-center gap-3 opacity-60 transition-opacity hover:opacity-100"
+              className="flex items-center opacity-50 transition-opacity duration-300 hover:opacity-90"
             >
               <img
                 src={p.logo}
                 alt={p.name}
-                className="h-6 w-auto max-w-[100px] object-contain brightness-0 invert opacity-70"
+                title={p.name}
+                className="h-7 w-auto max-w-[120px] object-contain brightness-0 invert"
                 onError={(e) => {
                   (e.currentTarget as HTMLElement).style.display = "none";
                 }}
               />
-              <span className="font-[var(--font-display)] text-base font-medium tracking-wide text-[#8B90A6]">
-                {p.name}
-              </span>
             </div>
           ))}
         </div>
